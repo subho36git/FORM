@@ -43,10 +43,16 @@ if (typeof window !== 'undefined') {
   }
 }
 
+// Helper to sanitize the Supabase URL in case a subpath was accidentally pasted
+const sanitizeUrl = (url: string | undefined): string => {
+  if (!url) return ''
+  return url.trim().replace(/\/rest\/v1\/?$/, '').replace(/\/$/, '')
+}
+
 // Safe fallback URL structure ensures the client can be instantiated
 // without throwing a runtime constructor error when keys are pending.
-const clientUrl = isSupabaseConfigured ? supabaseUrl : 'https://placeholder.supabase.co'
-const clientKey = isSupabaseConfigured ? supabaseAnonKey : 'placeholder-key'
+const clientUrl = isSupabaseConfigured ? sanitizeUrl(supabaseUrl) : 'https://placeholder.supabase.co'
+const clientKey = isSupabaseConfigured ? supabaseAnonKey.trim() : 'placeholder-key'
 
 export const supabase = createClient(clientUrl, clientKey, {
   auth: {
