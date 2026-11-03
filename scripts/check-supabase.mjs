@@ -24,8 +24,8 @@ const lines = envContent.split('\n')
 let hasUrl = false
 let isUrlValidFormat = false
 let hasKey = false
-let isKeyValidFormat = false
-let isJwtFormat = false
+let isModernPublishableKey = false
+let isLegacyJwt = false
 let rawUrl = ''
 let rawKey = ''
 let parsedUrlObj = null
@@ -38,7 +38,7 @@ for (const line of lines) {
   if (equalIndex === -1) continue
 
   const key = trimmed.slice(0, equalIndex).trim()
-  // Strip any wrapping single or double quotes
+  // Clean surrounding single or double quotes
   const value = trimmed.slice(equalIndex + 1).trim().replace(/^['"]|['"]$/g, '')
 
   if (key === 'VITE_SUPABASE_URL') {
@@ -61,140 +61,122 @@ for (const line of lines) {
     if (value.length > 0 && !value.includes('your-anon-key')) {
       hasKey = true
       rawKey = value
-      if (value.length >= 20) {
-        isKeyValidFormat = true
-      }
-      // Standard Supabase Anon keys are 3-part JWT tokens (header.payload.signature)
-      if (value.split('.').length === 3) {
-        isJwtFormat = true
+
+      // Support both modern Supabase publishable keys and legacy JWT keys
+      if (value.startsWith('sb_publishable_') || value.startsWith('sbp_')) {
+        isModernPublishableKey = true
+      } else if (value.startsWith('eyJ') && value.split('.').length === 3) {
+        isLegacyJwt = true
       }
     }
   }
 }
 
-// 1. Report loaded status without printing credential values
-console.log(`• VITE_SUPABASE_URL:      ${hasUrl ? (isUrlValidFormat ? '✅ LOADED (Valid URL format)' : '⚠️ LOADED (Malformed URL)') : '❌ MISSING or EMPTY'}`)
-console.log(`• VITE_SUPABASE_ANON_KEY: ${hasKey ? (isKeyValidFormat ? (isJwtFormat ? '✅ LOADED (Valid JWT format)' : '⚠️ LOADED (Not a 3-part JWT token)') : '⚠️ LOADED (Key unusually short)') : '❌ MISSING or EMPTY'}`)
+// Format status reporting without printing credentials
+let keyFormatDescription = '❌ MISSING or EMPTY'
+if (hasKey) {
+  if (isModernPublishableKey) {
+    keyFormatDescription = '✅ LOADED (Modern publishable key: sb_publishable_...)'
+  } else if (isLegacyJwt) {
+    keyFormatDescription = '✅ LOADED (Legacy anon JWT format)'
+  } else if (rawKey.length >= 20) {
+    keyFormatDescription = '✅ LOADED (Custom / Standard key format)'
+  } else {
+    keyFormatDescription = '⚠️ LOADED (Key appears unusually short)'
+  }
+}
 
-// 2. Identify and report common URL configuration mistakes
+console.log(`• VITE_SUPABASE_URL:      ${hasUrl ? (isUrlValidFormat ? '✅ LOADED (Valid URL format)' : '⚠️ LOADED (Malformed URL)') : '❌ MISSING or EMPTY'}`)
+console.log(`• VITE_SUPABASE_ANON_KEY: ${keyFormatDescription}`)
+
+// Check for subpath in VITE_SUPABASE_URL
 let cleanBaseUrl = rawUrl.replace(/\/$/, '')
-let hasSubpathIssue = false
+let hasSubpathNotice = false
 
 if (parsedUrlObj) {
   if (parsedUrlObj.hostname === 'supabase.com' || parsedUrlObj.pathname.includes('/dashboard')) {
     console.log('\n⚠️  URL NOTICE: You have entered the Supabase Dashboard URL ("supabase.com/dashboard/...")')
-    console.log('   Action needed: In your .env, use your Project URL instead (e.g. "https://[project-id].supabase.co").')
+    console.log('   Action: In your .env, use your Project URL instead (e.g. "https://[project-id].supabase.co").')
   } else if (parsedUrlObj.pathname !== '/' && parsedUrlObj.pathname !== '') {
-    hasSubpathIssue = true
+    hasSubpathNotice = true
     console.log(`\n⚠️  URL NOTICE: Your VITE_SUPABASE_URL contains a subpath ("${parsedUrlObj.pathname}").`)
-    console.log('   The Project URL must ONLY be the base origin, e.g. "https://[project-id].supabase.co" without "/rest/v1" or other paths.')
-    console.log('   The check will automatically test against the clean base origin.')
+    console.log('   The Project URL should only be the base origin, e.g. "https://[project-id].supabase.co" without "/rest/v1/".')
+    console.log('   The check will normalize to the clean origin for testing.')
     cleanBaseUrl = parsedUrlObj.origin
   }
 }
 
-if (hasKey && !isJwtFormat) {
-  console.log('\n⚠️  ANON KEY NOTICE: Your VITE_SUPABASE_ANON_KEY does not appear to be a standard JWT token.')
-  console.log('   Make sure you copied the "anon" public key (starts with "eyJ...") from:')
-  console.log('   Supabase Dashboard -> Settings -> API -> Project API Keys -> "anon public".')
-  console.log('   (Do not use your database password or secret service_role key).\n')
-}
-
 console.log('\n----------------------------------------')
 
-if (hasUrl && hasKey && isUrlValidFormat && isKeyValidFormat) {
-  console.log('📡 Testing live connectivity to Supabase project...')
+if (hasUrl && hasKey && isUrlValidFormat) {
+  console.log('📡 Testing live connectivity via official @supabase/supabase-js client...')
 
-  let isConnected = false
-  let failureReason = null
-
-  // Test 1: Query database engine via official @supabase/supabase-js client
   try {
-    const client = createClient(cleanBaseUrl, rawKey)
-    // Probe database with limit 0
-    const { error } = await client.from('_probe_connection').select('*').limit(0)
-
-    if (!error) {
-      console.log('✅ [Database Engine]: Connected and query executed successfully.')
-      isConnected = true
-    } else if (error.code === '42P01' || error.message?.includes('does not exist')) {
-      // Postgres error 42P01 = "undefined_table". This proves authentication succeeded!
-      console.log('✅ [Database Engine]: Connected and authenticated (PostgreSQL engine is online).')
-      isConnected = true
-    } else if (error.code === 'PGRST301' || error.message?.includes('JWT') || error.message?.includes('apikey')) {
-      console.log(`❌ [Database Engine]: Authentication Rejected (${error.message}). The Anon Key was rejected.`)
-      failureReason = 'auth_rejected'
-    } else {
-      console.log(`ℹ️ [Database Engine Response]: ${error.message} (Code: ${error.code || 'N/A'})`)
-      // If server responded with any application-level message, it reached Supabase
-      if (error.code) isConnected = true
-    }
-  } catch (err) {
-    console.log(`❌ [Database Engine]: Connection error (${err.message})`)
-    failureReason = 'network_error'
-  }
-
-  // Test 2: Check REST API endpoint directly with fetch
-  try {
-    const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 6000)
-
-    const res = await fetch(`${cleanBaseUrl}/rest/v1/`, {
-      method: 'GET',
-      headers: {
-        apikey: rawKey,
-        Authorization: `Bearer ${rawKey}`,
+    const client = createClient(cleanBaseUrl, rawKey, {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
       },
-      signal: controller.signal,
     })
-    clearTimeout(timeoutId)
 
-    if (res.ok || (res.status >= 200 && res.status < 300)) {
-      console.log(`✅ [REST Gateway]: Connected (HTTP ${res.status} OK)`)
-      isConnected = true
-    } else if (res.status === 401 || res.status === 403) {
-      console.log(`❌ [REST Gateway]: Authentication Error (HTTP ${res.status}).`)
-      if (!failureReason) failureReason = 'auth_rejected'
-    } else if (res.status === 404) {
-      console.log(`❌ [REST Gateway]: HTTP 404 Not Found. The project URL may not exist.`)
-      if (!failureReason) failureReason = 'url_not_found'
-    } else {
-      console.log(`⚠️ [REST Gateway]: HTTP ${res.status}`)
+    // Probe the PostgREST database engine via official client
+    const { error, status } = await client
+      .from('_connection_probe')
+      .select('*')
+      .limit(0)
+
+    console.log('----------------------------------------')
+
+    // 1. Authentication Failure Check
+    if (
+      status === 401 ||
+      status === 403 ||
+      error?.code === 'PGRST301' ||
+      error?.message?.toLowerCase().includes('jwt') ||
+      error?.message?.toLowerCase().includes('apikey') ||
+      error?.message?.toLowerCase().includes('invalid api key')
+    ) {
+      console.log(`❌ AUTHENTICATION ERROR (HTTP ${status || 401})`)
+      console.log(`   Message: ${error?.message || 'The Anon Key was rejected by the Supabase project.'}`)
+      console.log('\n   Guidance:')
+      console.log('   • Go to your Supabase project -> Project Settings -> API.')
+      console.log('   • Ensure you copied the public / anon key into VITE_SUPABASE_ANON_KEY.')
+    }
+    // 2. Project Host Not Found Check
+    else if (status === 404 && (!error?.code || !error.code.startsWith('PGRST'))) {
+      console.log('❌ PROJECT NOT FOUND (HTTP 404)')
+      console.log('   The Supabase host returned 404. Verify the project reference in your URL.')
+    }
+    // 3. Project Paused / Service Unavailable
+    else if (status === 502 || status === 503) {
+      console.log(`⚠️ SERVICE UNAVAILABLE (HTTP ${status})`)
+      console.log('   Your Supabase project might be paused. Visit supabase.com to wake it up.')
+    }
+    // 4. Genuine Database Response (PGRST205 / 42P01 / 200 OK)
+    // PGRST205 indicates the PostgREST server authenticated the client and queried the schema cache.
+    else if (
+      status === 200 ||
+      error?.code === 'PGRST205' ||
+      error?.code === '42P01' ||
+      (!error && status >= 200 && status < 300)
+    ) {
+      console.log('✅ DATABASE ENGINE CONNECTED & AUTHENTICATED')
+      console.log(`   Server responded: ${error?.message || 'OK (HTTP ' + status + ')'}`)
+      console.log('\n🎉 RESULT: Supabase is online, reachable, and authenticated!')
+
+      if (hasSubpathNotice) {
+        console.log('\n💡 Recommendation: Remove "/rest/v1/" from VITE_SUPABASE_URL in your .env so it matches standard format.')
+      }
+    }
+    // 5. Other Unexpected Server Response
+    else {
+      console.log(`⚠️ UNEXPECTED RESPONSE (HTTP ${status || 'N/A'})`)
+      console.log(`   Details: ${error?.message || 'Unknown response from server'}`)
     }
   } catch (err) {
-    if (err.name === 'AbortError') {
-      console.log('❌ [REST Gateway]: Connection timed out (> 6s).')
-      if (!failureReason) failureReason = 'timeout'
-    } else {
-      console.log(`❌ [REST Gateway]: Network unreachable (${err.code || err.message}).`)
-      if (!failureReason) failureReason = 'network_error'
-    }
-  }
-
-  console.log('----------------------------------------')
-
-  if (isConnected) {
-    console.log('🎉 RESULT: Supabase is online, reachable, and authenticated!')
-    if (hasSubpathIssue) {
-      console.log('\n💡 RECOMMENDATION: To prevent issues in the React app, please edit your .env file:')
-      console.log('   Change VITE_SUPABASE_URL to just the base URL (without /rest/v1/).')
-    } else {
-      console.log('   All credentials are valid and ready for Phase 2.')
-    }
-  } else {
-    console.log('⚠️ RESULT: Connectivity check failed.')
-    if (failureReason === 'auth_rejected') {
-      console.log('   Guidance: The Project URL is valid, but the Anon Key was rejected by Supabase.')
-      console.log('   1. Go to your project on supabase.com.')
-      console.log('   2. Navigate to Project Settings -> API.')
-      console.log('   3. Under "Project API Keys", copy the "anon" public key (not service_role or DB password).')
-      console.log('   4. Paste it as VITE_SUPABASE_ANON_KEY in your .env file.')
-    } else if (failureReason === 'url_not_found') {
-      console.log('   Guidance: The project URL returned 404.')
-      console.log('   Verify that your Project URL in Project Settings -> API matches: https://[project-id].supabase.co')
-    } else if (failureReason === 'network_error' || failureReason === 'timeout') {
-      console.log('   Guidance: Check your internet connection or verify DNS resolution.')
-    }
+    console.log('----------------------------------------')
+    console.log(`❌ NETWORK FAILURE: ${err.code || err.message || 'Unable to connect to host'}`)
+    console.log('   Guidance: Check your internet connection or verify that the Project URL is spelled correctly.')
   }
 } else {
   console.log('⚠️ Status: PENDING CREDENTIALS')
