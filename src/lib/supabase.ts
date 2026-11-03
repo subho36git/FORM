@@ -15,11 +15,32 @@ export const isSupabaseConfigured: boolean = Boolean(
   !supabaseUrl.includes('your-project')
 )
 
-if (!isSupabaseConfigured) {
-  // Safe warning message: Never outputs the actual values
-  console.warn(
-    '[FORM] Supabase connection is currently unconfigured. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file to activate database and authentication features.'
-  )
+export interface SupabaseConfigStatus {
+  hasUrl: boolean
+  hasAnonKey: boolean
+  isReady: boolean
+}
+
+export const getSupabaseConfigStatus = (): SupabaseConfigStatus => ({
+  hasUrl: Boolean(supabaseUrl && supabaseUrl.trim().length > 0 && !supabaseUrl.includes('your-project')),
+  hasAnonKey: Boolean(supabaseAnonKey && supabaseAnonKey.trim().length > 0 && !supabaseAnonKey.includes('your-anon-key')),
+  isReady: isSupabaseConfigured,
+})
+
+// Safe diagnostic check: reports status in the browser console without displaying credentials
+if (typeof window !== 'undefined') {
+  const status = getSupabaseConfigStatus()
+  if (status.isReady) {
+    console.log(
+      '%c[FORM • Supabase Check]%c ✅ VITE_SUPABASE_URL: Loaded | ✅ VITE_SUPABASE_ANON_KEY: Loaded (Status: Ready)',
+      'color: #10B981; font-weight: bold;',
+      'color: inherit;'
+    )
+  } else {
+    console.warn(
+      `[FORM • Supabase Check] VITE_SUPABASE_URL: ${status.hasUrl ? 'LOADED' : 'MISSING'} | VITE_SUPABASE_ANON_KEY: ${status.hasAnonKey ? 'LOADED' : 'MISSING'}`
+    )
+  }
 }
 
 // Safe fallback URL structure ensures the client can be instantiated
