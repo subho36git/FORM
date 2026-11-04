@@ -42,11 +42,11 @@ create trigger set_profiles_updated_at
   execute function public.handle_updated_at();
 
 -- 3. Explicitly configure table privileges (Defense-in-Depth)
--- Revoke all table-level privileges from anon and authenticated roles
-revoke all on table public.profiles from anon, authenticated;
+-- Revoke all table-level privileges from PUBLIC, anon, and authenticated roles
+REVOKE ALL ON TABLE public.profiles FROM PUBLIC, anon, authenticated;
 
 -- Grant strictly SELECT and UPDATE to authenticated users (no INSERT or DELETE granted)
-grant select, update on table public.profiles to authenticated;
+GRANT SELECT, UPDATE ON TABLE public.profiles TO authenticated;
 
 -- 4. Enable Row Level Security (RLS)
 -- Crucial for multi-tenant privacy: by default, NO queries are permitted until policies are defined.
@@ -105,6 +105,9 @@ begin
   return new;
 end;
 $$;
+
+-- Revoke direct execution permissions on the trigger function
+REVOKE EXECUTE ON FUNCTION public.handle_new_user() FROM PUBLIC, anon, authenticated;
 
 -- Safely recreate the trigger on auth.users
 drop trigger if exists on_auth_user_created on auth.users;
