@@ -1,9 +1,9 @@
 -- ==============================================================================
--- FORM Application — Phase 2: User Profiles Migration (Hardened)
+-- FORM Application — Phase 2: User Profiles Migration (Hardened & Scoped)
 -- Migration: 001_create_profiles.sql
--- Description: Creates the public.profiles table, enables Row Level Security (RLS),
---              defines strict access policies (SELECT and UPDATE only), and configures
---              a hardened automatic signup trigger with an empty search_path.
+-- Description: Creates the public.profiles table, configures explicit table-level
+--              privileges (Defense-in-Depth), enables Row Level Security (RLS),
+--              defines strict policies, and sets up a hardened signup trigger.
 -- ==============================================================================
 
 -- 1. Create the public.profiles table
@@ -41,11 +41,18 @@ create trigger set_profiles_updated_at
   for each row
   execute function public.handle_updated_at();
 
--- 3. Enable Row Level Security (RLS)
+-- 3. Explicitly configure table privileges (Defense-in-Depth)
+-- Revoke all table-level privileges from anon and authenticated roles
+revoke all on table public.profiles from anon, authenticated;
+
+-- Grant strictly SELECT and UPDATE to authenticated users (no INSERT or DELETE granted)
+grant select, update on table public.profiles to authenticated;
+
+-- 4. Enable Row Level Security (RLS)
 -- Crucial for multi-tenant privacy: by default, NO queries are permitted until policies are defined.
 alter table public.profiles enable row level security;
 
--- 4. Define Row Level Security (RLS) Policies
+-- 5. Define Row Level Security (RLS) Policies
 -- Note: No INSERT policy is provided for client roles. Profiles can ONLY be created
 -- by the internal auth.users database trigger, preventing clients from inserting rogue rows.
 
@@ -69,7 +76,7 @@ create policy "Users can update own profile"
   using (auth.uid() = id)
   with check (auth.uid() = id);
 
--- 5. Automatically create a profile when a new user signs up in auth.users
+-- 6. Automatically create a profile when a new user signs up in auth.users
 -- Security Hardening:
 --   • SECURITY DEFINER: Runs with elevated database-owner permissions during signup.
 --   • SET search_path = '': Eliminates search path hijacking vulnerabilities by ensuring
