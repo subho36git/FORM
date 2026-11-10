@@ -1,0 +1,7 @@
+export * from './OnboardingPage'
+export * from './components/StepIndicator'
+export * from './components/StepWelcome'
+export * from './components/StepBodyStats'
+export * from './components/StepGoal'
+export * from './components/StepActivity'
+export * from './components/StepTargets'

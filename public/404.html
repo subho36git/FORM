@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>FORM — Fitness &amp; Nutrition Tracker</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      // Converts path and query into query string and redirects to root
+      // If hosted on GitHub Pages subpath (e.g., https://username.github.io/repo-name/)
+      // pathSegmentsToKeep is 1. If custom domain or root, pathSegmentsToKeep is 0.
+      var isGithubPagesSubpath = window.location.hostname.endsWith('github.io') && window.location.pathname.split('/').filter(Boolean).length > 0;
+      var pathSegmentsToKeep = isGithubPagesSubpath ? 1 : 0;
+
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(pathSegmentsToKeep)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

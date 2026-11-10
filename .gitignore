@@ -37,3 +37,4 @@ Thumbs.db
 .oxlintrc.json.cache
 *.tsbuildinfo
 
+supabase/.temp/
