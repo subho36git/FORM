@@ -14,7 +14,7 @@ export default defineConfig({
       '@': path.resolve(import.meta.dirname, './src'),
     },
   },
-  // Accommodates GitHub Pages subpath deployment when needed
-  base: process.env.BASE_PATH || '/',
+  // Configured for GitHub Pages project repository deployment (/FORM/)
+  base: process.env.BASE_PATH || '/FORM/',
 })
 
