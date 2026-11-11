@@ -309,7 +309,7 @@ export const PhotoGalleryTab: React.FC<PhotoGalleryTabProps> = ({
                         </span>
 
                         {weight !== null && (
-                          <span className="font-mono text-[11px] text-blue-500 font-semibold flex items-center gap-0.5">
+                          <span className="font-mono text-[11px] text-[var(--color-accent)] font-semibold flex items-center gap-0.5">
                             <Scale className="w-3 h-3" />
                             {formatWeight(weight)}
                           </span>

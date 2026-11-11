@@ -153,7 +153,7 @@ export const DashboardPage: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Protein Intake
               </span>
-              <div className="p-2 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
+              <div className="p-2 rounded-lg bg-[var(--color-accent-secondary-subtle)] text-[var(--color-accent-secondary-text)]">
                 <ShieldCheck className="w-4 h-4" />
               </div>
             </div>
@@ -167,7 +167,7 @@ export const DashboardPage: React.FC = () => {
             </div>
             <div className="mt-3 w-full bg-[var(--color-surface-hover)] h-1.5 rounded-full overflow-hidden">
               <div
-                className="bg-blue-500 h-full rounded-full transition-all"
+                className="bg-[var(--color-accent-secondary)] h-full rounded-full transition-all"
                 style={{ width: proteinTarget ? '100%' : '0%' }}
               />
             </div>
@@ -177,7 +177,7 @@ export const DashboardPage: React.FC = () => {
                   ? `${Math.round(((proteinTarget * 4) / calorieTarget) * 100)}% of daily calories`
                   : 'Protein budget'}
               </span>
-              <span className="text-blue-600 dark:text-blue-400 font-medium">
+              <span className="text-[var(--color-accent-secondary-text)] font-medium">
                 {proteinTarget !== null ? `${proteinTarget}g goal` : '—'}
               </span>
             </div>
@@ -191,7 +191,7 @@ export const DashboardPage: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Workout Consistency
               </span>
-              <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+              <div className="p-2 rounded-lg bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)]">
                 <Dumbbell className="w-4 h-4" />
               </div>
             </div>
@@ -226,7 +226,7 @@ export const DashboardPage: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Current Weight
               </span>
-              <div className="p-2 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">
+              <div className="p-2 rounded-lg bg-[var(--color-lavender-surface)] text-[var(--color-lavender-text)]">
                 <Scale className="w-4 h-4" />
               </div>
             </div>
@@ -289,7 +289,7 @@ export const DashboardPage: React.FC = () => {
                 <div className="p-3.5 rounded-xl bg-[var(--color-surface-subtle)] border border-[var(--color-border)]">
                   <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)] font-semibold uppercase">
                     <span>Protein</span>
-                    <ShieldCheck className="w-3.5 h-3.5 text-blue-500" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-[var(--color-accent)]" />
                   </div>
                   <div className="mt-2 text-xl font-bold text-[var(--color-text-primary)]">
                     {proteinTarget !== null ? `${proteinTarget}g` : '—'}
@@ -303,7 +303,7 @@ export const DashboardPage: React.FC = () => {
                 <div className="p-3.5 rounded-xl bg-[var(--color-surface-subtle)] border border-[var(--color-border)]">
                   <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)] font-semibold uppercase">
                     <span>Carbs</span>
-                    <Wheat className="w-3.5 h-3.5 text-amber-500" />
+                    <Wheat className="w-3.5 h-3.5 text-[var(--color-accent-secondary)]" />
                   </div>
                   <div className="mt-2 text-xl font-bold text-[var(--color-text-primary)]">
                     {carbsTarget !== null ? `${carbsTarget}g` : '—'}
@@ -317,7 +317,7 @@ export const DashboardPage: React.FC = () => {
                 <div className="p-3.5 rounded-xl bg-[var(--color-surface-subtle)] border border-[var(--color-border)]">
                   <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)] font-semibold uppercase">
                     <span>Fat</span>
-                    <Droplet className="w-3.5 h-3.5 text-purple-500" />
+                    <Droplet className="w-3.5 h-3.5 text-[var(--color-lavender)]" />
                   </div>
                   <div className="mt-2 text-xl font-bold text-[var(--color-text-primary)]">
                     {fatTarget !== null ? `${fatTarget}g` : '—'}
@@ -344,7 +344,7 @@ export const DashboardPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-blue-500 flex items-center gap-1">
+                  <span className="text-[10px] uppercase font-bold text-[var(--color-accent)] flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     Projected Date (Theoretical Estimate)
                   </span>

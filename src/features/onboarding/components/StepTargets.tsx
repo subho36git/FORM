@@ -84,7 +84,7 @@ export const StepTargets: React.FC<StepTargetsProps> = ({
 
       {/* Success Banner */}
       {isSuccess && (
-        <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-[var(--color-accent)] text-xs flex items-center gap-3">
+        <div className="p-4 rounded-xl bg-[var(--color-accent-subtle)] border border-[var(--color-accent)]/20 text-[var(--color-accent-text)] text-xs flex items-center gap-3">
           <CheckCircle2 className="w-5 h-5 shrink-0" />
           <div className="font-semibold text-sm">
             Profile saved successfully! Directing you to your dashboard...
@@ -134,7 +134,7 @@ export const StepTargets: React.FC<StepTargetsProps> = ({
         <div className="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <div className="w-7 h-7 rounded-lg bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)] flex items-center justify-center">
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
@@ -162,7 +162,7 @@ export const StepTargets: React.FC<StepTargetsProps> = ({
         <div className="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+              <div className="w-7 h-7 rounded-lg bg-[var(--color-accent-secondary-subtle)] text-[var(--color-accent-secondary-text)] flex items-center justify-center">
                 <Wheat className="w-4 h-4" />
               </div>
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
@@ -190,7 +190,7 @@ export const StepTargets: React.FC<StepTargetsProps> = ({
         <div className="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+              <div className="w-7 h-7 rounded-lg bg-[var(--color-lavender-surface)] text-[var(--color-lavender-text)] flex items-center justify-center">
                 <Droplet className="w-4 h-4" />
               </div>
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]">

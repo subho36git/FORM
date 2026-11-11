@@ -119,10 +119,10 @@ export const DailyNutritionSummaryCard: React.FC = () => {
           <div className="p-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] space-y-2">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold text-[var(--color-text-secondary)] flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-blue-500" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[var(--color-accent)]" />
                 Protein
               </span>
-              <span className="font-bold text-blue-600 dark:text-blue-400 text-xs">
+              <span className="font-bold text-[var(--color-accent-text)] text-xs">
                 {proteinPercent}%
               </span>
             </div>
@@ -134,7 +134,7 @@ export const DailyNutritionSummaryCard: React.FC = () => {
             </div>
             <div className="w-full h-2 rounded-full bg-[var(--color-surface-hover)] overflow-hidden">
               <div
-                className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                className="h-full bg-[var(--color-accent)] rounded-full transition-all duration-500"
                 style={{ width: `${proteinPercent}%` }}
               />
             </div>
@@ -150,10 +150,10 @@ export const DailyNutritionSummaryCard: React.FC = () => {
           <div className="p-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] space-y-2">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold text-[var(--color-text-secondary)] flex items-center gap-1">
-                <Wheat className="w-3.5 h-3.5 text-amber-500" />
+                <Wheat className="w-3.5 h-3.5 text-[var(--color-accent-secondary)]" />
                 Carbs
               </span>
-              <span className="font-bold text-amber-600 dark:text-amber-400 text-xs">
+              <span className="font-bold text-[var(--color-accent-secondary-text)] text-xs">
                 {carbsPercent}%
               </span>
             </div>
@@ -165,7 +165,7 @@ export const DailyNutritionSummaryCard: React.FC = () => {
             </div>
             <div className="w-full h-2 rounded-full bg-[var(--color-surface-hover)] overflow-hidden">
               <div
-                className="h-full bg-amber-500 rounded-full transition-all duration-500"
+                className="h-full bg-[var(--color-accent-secondary)] rounded-full transition-all duration-500"
                 style={{ width: `${carbsPercent}%` }}
               />
             </div>
@@ -181,10 +181,10 @@ export const DailyNutritionSummaryCard: React.FC = () => {
           <div className="p-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] space-y-2">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold text-[var(--color-text-secondary)] flex items-center gap-1">
-                <Droplet className="w-3.5 h-3.5 text-purple-500" />
+                <Droplet className="w-3.5 h-3.5 text-[var(--color-lavender)]" />
                 Fats
               </span>
-              <span className="font-bold text-purple-600 dark:text-purple-400 text-xs">
+              <span className="font-bold text-[var(--color-lavender-text)] text-xs">
                 {fatPercent}%
               </span>
             </div>
@@ -196,7 +196,7 @@ export const DailyNutritionSummaryCard: React.FC = () => {
             </div>
             <div className="w-full h-2 rounded-full bg-[var(--color-surface-hover)] overflow-hidden">
               <div
-                className="h-full bg-purple-500 rounded-full transition-all duration-500"
+                className="h-full bg-[var(--color-lavender)] rounded-full transition-all duration-500"
                 style={{ width: `${fatPercent}%` }}
               />
             </div>
@@ -212,10 +212,10 @@ export const DailyNutritionSummaryCard: React.FC = () => {
           <div className="p-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] space-y-2">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold text-[var(--color-text-secondary)] flex items-center gap-1">
-                <Leaf className="w-3.5 h-3.5 text-emerald-500" />
+                <Leaf className="w-3.5 h-3.5 text-[var(--color-cyan)]" />
                 Fiber
               </span>
-              <span className="font-bold text-emerald-600 dark:text-emerald-400 text-xs">
+              <span className="font-bold text-[var(--color-cyan)] text-xs">
                 {fiberPercent}%
               </span>
             </div>
@@ -227,7 +227,7 @@ export const DailyNutritionSummaryCard: React.FC = () => {
             </div>
             <div className="w-full h-2 rounded-full bg-[var(--color-surface-hover)] overflow-hidden">
               <div
-                className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                className="h-full bg-[var(--color-cyan)] rounded-full transition-all duration-500"
                 style={{ width: `${fiberPercent}%` }}
               />
             </div>

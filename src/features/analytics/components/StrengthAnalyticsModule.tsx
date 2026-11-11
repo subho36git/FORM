@@ -44,13 +44,13 @@ const MUSCLE_GROUP_LABELS: Record<MuscleGroup, string> = {
 }
 
 const MUSCLE_PALETTE: Record<MuscleGroup, string> = {
-  chest: '#3B82F6', // Blue
-  back: '#10B981', // Emerald / Accent
-  legs: '#8B5CF6', // Purple
-  shoulders: '#F59E0B', // Amber
-  arms: '#EC4899', // Pink
-  core: '#14B8A6', // Teal
-  full_body: '#6366F1', // Indigo
+  chest: '#5680E9', // Primary Blue
+  back: '#5AB9EA', // Bright Cyan Blue
+  legs: '#8860D0', // Lavender
+  shoulders: '#84CEEB', // Sky Cyan
+  arms: '#C1C8E4', // Periwinkle
+  core: '#466ECC', // Deep Blue
+  full_body: '#9F7FE2', // Soft Lavender
   other: '#94A3B8', // Slate / Muted
 }
 
@@ -453,7 +453,7 @@ export const StrengthAnalyticsModule: React.FC = () => {
               <span className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Working Sets
               </span>
-              <div className="p-1.5 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-400">
+              <div className="p-1.5 rounded-md bg-[var(--color-lavender-surface)] text-[var(--color-lavender-text)]">
                 <Layers className="w-4 h-4" />
               </div>
             </div>
@@ -476,7 +476,7 @@ export const StrengthAnalyticsModule: React.FC = () => {
               <span className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Workouts Logged
               </span>
-              <div className="p-1.5 rounded-md bg-blue-500/10 text-blue-500">
+              <div className="p-1.5 rounded-md bg-[var(--color-accent-subtle)] text-[var(--color-accent)]">
                 <Calendar className="w-4 h-4" />
               </div>
             </div>
@@ -525,7 +525,7 @@ export const StrengthAnalyticsModule: React.FC = () => {
               <div
                 className={`p-1.5 rounded-md ${
                   mostImprovedExercise
-                    ? 'bg-emerald-500/10 text-emerald-500'
+                    ? 'bg-[var(--color-accent-subtle)] text-[var(--color-accent)]'
                     : 'bg-[var(--color-surface-hover)] text-[var(--color-text-muted)]'
                 }`}
               >
@@ -535,7 +535,7 @@ export const StrengthAnalyticsModule: React.FC = () => {
             {mostImprovedExercise ? (
               <>
                 <div className="mt-2.5 flex items-baseline gap-1.5">
-                  <span className="text-2xl font-bold text-emerald-500 font-mono">
+                  <span className="text-2xl font-bold text-[var(--color-accent)] font-mono">
                     +{kgToDisplay(mostImprovedExercise.deltaKg).toFixed(1)}
                   </span>
                   <span className="text-xs text-[var(--color-text-muted)] font-medium">
@@ -704,7 +704,7 @@ export const StrengthAnalyticsModule: React.FC = () => {
         <Card className="flex flex-col justify-between">
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <Layers className="w-4 h-4 text-purple-500" />
+              <Layers className="w-4 h-4 text-[var(--color-lavender)]" />
               <span>Muscle Group Volume Balance</span>
             </CardTitle>
             <CardDescription className="text-xs">

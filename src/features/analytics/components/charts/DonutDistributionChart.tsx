@@ -20,14 +20,14 @@ export interface DonutDistributionChartProps {
 }
 
 const DEFAULT_PALETTE = [
-  'var(--color-accent)',
-  '#3B82F6', // Blue
-  '#8B5CF6', // Purple
-  '#F59E0B', // Amber
-  '#EC4899', // Pink
-  '#14B8A6', // Teal
-  '#6366F1', // Indigo
-  '#F97316', // Orange
+  'var(--chart-primary)', // Primary Blue (#5680E9)
+  'var(--chart-secondary)', // Bright Cyan Blue (#5AB9EA)
+  'var(--chart-tertiary)', // Lavender (#8860D0)
+  'var(--chart-supporting)', // Sky Cyan (#84CEEB)
+  'var(--color-periwinkle)', // Periwinkle (#C1C8E4)
+  '#466ECC', // Deep Primary Blue
+  '#6FC9F0', // Vibrant Sky Cyan
+  '#9B78D8', // Light Lavender
 ]
 
 export const DonutDistributionChart: React.FC<DonutDistributionChartProps> = ({

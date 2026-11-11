@@ -102,7 +102,7 @@ export const WorkoutsPage: React.FC = () => {
           <div className="flex items-center gap-2 mb-1">
             <Badge variant="accent">Workout Tracker</Badge>
             {activeWorkout && (
-              <Badge variant="outline" className="bg-emerald-500/10 text-[var(--color-accent)] border-emerald-500/20 font-bold animate-pulse">
+              <Badge variant="outline" className="bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)] border-[var(--color-accent)]/20 font-bold animate-pulse">
                 Workout In Progress
               </Badge>
             )}

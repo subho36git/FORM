@@ -37,7 +37,7 @@ export const AnalyticsPage: React.FC = () => {
                 : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
             }`}
           >
-            <Activity className="w-3.5 h-3.5 text-emerald-500" />
+            <Activity className="w-3.5 h-3.5 text-[var(--color-accent)]" />
             <span>Consistency & Matrix</span>
           </button>
 
@@ -61,7 +61,7 @@ export const AnalyticsPage: React.FC = () => {
                 : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
             }`}
           >
-            <Scale className="w-3.5 h-3.5 text-blue-500" />
+            <Scale className="w-3.5 h-3.5 text-[var(--color-accent)]" />
             <span>Body Composition</span>
           </button>
 
@@ -95,7 +95,7 @@ export const AnalyticsPage: React.FC = () => {
         </div>
         <div className="flex items-center gap-2">
           <span className="flex items-center gap-1 text-[var(--color-text-secondary)] font-medium">
-            <Activity className="w-3.5 h-3.5 text-emerald-500" /> Consistency Grid Active
+            <Activity className="w-3.5 h-3.5 text-[var(--color-accent)]" /> Consistency Grid Active
           </span>
         </div>
       </div>

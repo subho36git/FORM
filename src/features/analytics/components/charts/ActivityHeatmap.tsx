@@ -201,11 +201,11 @@ export const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
     }
 
     if (currentFilter === 'nutrition') {
-      return item.nutritionLogged ? '#10B981' : 'var(--color-surface-hover)'
+      return item.nutritionLogged ? 'var(--color-accent-secondary)' : 'var(--color-surface-hover)'
     }
 
     if (currentFilter === 'weight') {
-      return item.weightLogged ? '#3B82F6' : 'var(--color-surface-hover)'
+      return item.weightLogged ? 'var(--color-lavender)' : 'var(--color-surface-hover)'
     }
 
     // Default 'all': 0 to 3 scale
@@ -218,11 +218,11 @@ export const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
 
     switch (score) {
       case 3:
-        return 'var(--color-accent)' // Full dual consistency
+        return 'var(--color-accent)' // Full dual consistency (Primary Blue)
       case 2:
-        return 'rgba(16, 185, 129, 0.65)' // Workout OR Nutrition
+        return 'var(--color-accent-secondary)' // Workout OR Nutrition (Cyan Blue)
       case 1:
-        return 'rgba(16, 185, 129, 0.28)' // Weigh-in only
+        return 'var(--color-periwinkle)' // Weigh-in only (Periwinkle)
       default:
         return 'var(--color-surface-hover)' // Inactive
     }
@@ -302,7 +302,7 @@ export const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
                 onClick={() => handleFilterToggle('nutrition')}
                 className={`px-2.5 py-1 text-[11px] font-semibold rounded-md transition-all cursor-pointer flex items-center gap-1 ${
                   currentFilter === 'nutrition'
-                    ? 'bg-[var(--color-surface)] text-emerald-600 dark:text-emerald-400 shadow-xs'
+                    ? 'bg-[var(--color-surface)] text-[var(--color-accent-secondary)] shadow-xs'
                     : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
                 }`}
               >
@@ -313,7 +313,7 @@ export const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
                 onClick={() => handleFilterToggle('weight')}
                 className={`px-2.5 py-1 text-[11px] font-semibold rounded-md transition-all cursor-pointer flex items-center gap-1 ${
                   currentFilter === 'weight'
-                    ? 'bg-[var(--color-surface)] text-blue-500 shadow-xs'
+                    ? 'bg-[var(--color-surface)] text-[var(--color-lavender)] shadow-xs'
                     : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
                 }`}
               >
@@ -506,7 +506,7 @@ export const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
                   ) : null}
 
                   {hoveredDay.day.nutritionLogged ? (
-                    <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium">
+                    <div className="flex items-center gap-1.5 text-[var(--color-accent-secondary-text)] font-medium">
                       <span>🥗</span>
                       <span>
                         {hoveredDay.day.calories
@@ -517,7 +517,7 @@ export const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
                   ) : null}
 
                   {hoveredDay.day.weightLogged ? (
-                    <div className="flex items-center gap-1.5 text-blue-500 font-medium">
+                    <div className="flex items-center gap-1.5 text-[var(--color-lavender-text)] font-medium">
                       <span>⚖️</span>
                       <span>{hoveredDay.day.weightKg ? `${hoveredDay.day.weightKg} kg weigh-in` : 'Weigh-in recorded'}</span>
                     </div>
@@ -573,12 +573,12 @@ export const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
                 />
                 <span
                   className="w-3 h-3 rounded-sm border border-[var(--color-border-subtle)] inline-block"
-                  style={{ backgroundColor: 'rgba(16, 185, 129, 0.28)' }}
+                  style={{ backgroundColor: 'var(--color-periwinkle)' }}
                   title="Weigh-in only"
                 />
                 <span
                   className="w-3 h-3 rounded-sm border border-[var(--color-border-subtle)] inline-block"
-                  style={{ backgroundColor: 'rgba(16, 185, 129, 0.65)' }}
+                  style={{ backgroundColor: 'var(--color-accent-secondary)' }}
                   title="Workout or Nutrition"
                 />
                 <span
@@ -618,7 +618,7 @@ export const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
               <div className="flex items-center gap-1">
                 <span
                   className="w-3 h-3 rounded-sm border border-[var(--color-border-subtle)] inline-block"
-                  style={{ backgroundColor: '#10B981' }}
+                  style={{ backgroundColor: 'var(--color-accent-secondary)' }}
                 />
                 <span>Logged</span>
               </div>
@@ -635,7 +635,7 @@ export const ActivityHeatmap: React.FC<ActivityHeatmapProps> = ({
               <div className="flex items-center gap-1">
                 <span
                   className="w-3 h-3 rounded-sm border border-[var(--color-border-subtle)] inline-block"
-                  style={{ backgroundColor: '#3B82F6' }}
+                  style={{ backgroundColor: 'var(--color-lavender)' }}
                 />
                 <span>Weighed</span>
               </div>

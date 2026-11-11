@@ -483,7 +483,7 @@ export const SavedFoodsModal: React.FC<SavedFoodsModalProps> = ({
           )}
 
           {successMessage && (
-            <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1.5 animate-in fade-in">
+            <div className="p-3 rounded-lg bg-[var(--color-accent-subtle)] border border-[var(--color-accent)]/20 text-xs text-[var(--color-accent-text)] font-medium flex items-center gap-1.5 animate-in fade-in">
               <Sparkles className="w-3.5 h-3.5 shrink-0" />
               <span>{successMessage}</span>
             </div>
@@ -622,11 +622,11 @@ export const SavedFoodsModal: React.FC<SavedFoodsModalProps> = ({
                           <span className="font-semibold text-[var(--color-text-primary)]">
                             {food.calories} kcal
                           </span>{' '}
-                          • <span className="text-blue-500 font-semibold">{food.protein_g}g P</span> •{' '}
-                          <span className="text-amber-500 font-semibold">{food.carbs_g}g C</span> •{' '}
-                          <span className="text-purple-500 font-semibold">{food.fat_g}g F</span>
+                          • <span className="text-[var(--color-accent)] font-semibold">{food.protein_g}g P</span> •{' '}
+                          <span className="text-[var(--color-accent-secondary)] font-semibold">{food.carbs_g}g C</span> •{' '}
+                          <span className="text-[var(--color-lavender)] font-semibold">{food.fat_g}g F</span>
                           {Number(food.fiber_g) > 0 && (
-                            <span className="text-emerald-500 font-semibold"> • {food.fiber_g}g Fiber</span>
+                            <span className="text-[var(--color-cyan)] font-semibold"> • {food.fiber_g}g Fiber</span>
                           )}
                         </p>
                       </div>
@@ -885,7 +885,7 @@ export const SavedFoodsModal: React.FC<SavedFoodsModalProps> = ({
                               />
                             </div>
                             <div>
-                              <label className="text-[10px] text-blue-500 font-semibold block mb-0.5 text-center">
+                              <label className="text-[10px] text-[var(--color-accent)] font-semibold block mb-0.5 text-center">
                                 Protein
                               </label>
                               <input
@@ -901,7 +901,7 @@ export const SavedFoodsModal: React.FC<SavedFoodsModalProps> = ({
                               />
                             </div>
                             <div>
-                              <label className="text-[10px] text-amber-500 font-semibold block mb-0.5 text-center">
+                              <label className="text-[10px] text-[var(--color-accent-secondary)] font-semibold block mb-0.5 text-center">
                                 Carbs
                               </label>
                               <input
@@ -917,7 +917,7 @@ export const SavedFoodsModal: React.FC<SavedFoodsModalProps> = ({
                               />
                             </div>
                             <div>
-                              <label className="text-[10px] text-purple-500 font-semibold block mb-0.5 text-center">
+                              <label className="text-[10px] text-[var(--color-lavender)] font-semibold block mb-0.5 text-center">
                                 Fat
                               </label>
                               <input
@@ -933,7 +933,7 @@ export const SavedFoodsModal: React.FC<SavedFoodsModalProps> = ({
                               />
                             </div>
                             <div>
-                              <label className="text-[10px] text-emerald-500 font-semibold block mb-0.5 text-center">
+                              <label className="text-[10px] text-[var(--color-cyan)] font-semibold block mb-0.5 text-center">
                                 Fibre
                               </label>
                               <input
@@ -977,10 +977,10 @@ export const SavedFoodsModal: React.FC<SavedFoodsModalProps> = ({
                           <span className="text-xs font-normal text-[var(--color-text-muted)]">kcal</span>
                         </p>
                         <div className="flex flex-wrap gap-x-2 gap-y-0.5 text-[11px]">
-                          <span className="text-blue-500 font-semibold">{recipeCalculations.total.protein_g}g P</span>
-                          <span className="text-amber-500 font-semibold">{recipeCalculations.total.carbs_g}g C</span>
-                          <span className="text-purple-500 font-semibold">{recipeCalculations.total.fat_g}g F</span>
-                          <span className="text-emerald-500 font-semibold">{recipeCalculations.total.fiber_g}g Fiber</span>
+                          <span className="text-[var(--color-accent)] font-semibold">{recipeCalculations.total.protein_g}g P</span>
+                          <span className="text-[var(--color-accent-secondary)] font-semibold">{recipeCalculations.total.carbs_g}g C</span>
+                          <span className="text-[var(--color-lavender)] font-semibold">{recipeCalculations.total.fat_g}g F</span>
+                          <span className="text-[var(--color-cyan)] font-semibold">{recipeCalculations.total.fiber_g}g Fiber</span>
                         </div>
                       </div>
 
@@ -994,10 +994,10 @@ export const SavedFoodsModal: React.FC<SavedFoodsModalProps> = ({
                           <span className="text-xs font-normal text-[var(--color-text-muted)]">kcal</span>
                         </p>
                         <div className="flex flex-wrap gap-x-2 gap-y-0.5 text-[11px]">
-                          <span className="text-blue-500 font-semibold">{recipeCalculations.perServing.protein_g}g P</span>
-                          <span className="text-amber-500 font-semibold">{recipeCalculations.perServing.carbs_g}g C</span>
-                          <span className="text-purple-500 font-semibold">{recipeCalculations.perServing.fat_g}g F</span>
-                          <span className="text-emerald-500 font-semibold">{recipeCalculations.perServing.fiber_g}g Fiber</span>
+                          <span className="text-[var(--color-accent)] font-semibold">{recipeCalculations.perServing.protein_g}g P</span>
+                          <span className="text-[var(--color-accent-secondary)] font-semibold">{recipeCalculations.perServing.carbs_g}g C</span>
+                          <span className="text-[var(--color-lavender)] font-semibold">{recipeCalculations.perServing.fat_g}g F</span>
+                          <span className="text-[var(--color-cyan)] font-semibold">{recipeCalculations.perServing.fiber_g}g Fiber</span>
                         </div>
                       </div>
                     </div>

@@ -33,6 +33,13 @@ export interface TrendLineChartProps {
   className?: string
 }
 
+const DEFAULT_CHART_SERIES_COLORS = [
+  'var(--chart-primary)',
+  'var(--chart-secondary)',
+  'var(--chart-tertiary)',
+  'var(--chart-supporting)',
+]
+
 export const TrendLineChart: React.FC<TrendLineChartProps> = ({
   series,
   targetLine,
@@ -184,7 +191,7 @@ export const TrendLineChart: React.FC<TrendLineChartProps> = ({
       areaPath = `${linePath} L ${points[points.length - 1].x} ${baseY} L ${points[0].x} ${baseY} Z`
     }
 
-    const defaultColor = sIdx === 0 ? 'var(--color-accent)' : '#3B82F6'
+    const defaultColor = DEFAULT_CHART_SERIES_COLORS[sIdx % DEFAULT_CHART_SERIES_COLORS.length]
     const color = s.color || defaultColor
 
     return {
@@ -220,7 +227,7 @@ export const TrendLineChart: React.FC<TrendLineChartProps> = ({
       <div className="flex flex-wrap items-center justify-between gap-3 mb-3 text-xs">
         <div className="flex flex-wrap items-center gap-4">
           {series.map((s, idx) => {
-            const color = s.color || (idx === 0 ? 'var(--color-accent)' : '#3B82F6')
+            const color = s.color || DEFAULT_CHART_SERIES_COLORS[idx % DEFAULT_CHART_SERIES_COLORS.length]
             return (
               <div key={s.id || idx} className="flex items-center gap-1.5 text-[var(--color-text-secondary)] font-medium">
                 <span

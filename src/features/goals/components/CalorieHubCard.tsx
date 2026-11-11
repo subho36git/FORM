@@ -189,7 +189,7 @@ export const CalorieHubCard: React.FC = () => {
               </div>
               <div className="flex items-center justify-between text-[var(--color-text-secondary)]">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <Zap className="w-3.5 h-3.5 text-blue-500" />
+                  <Zap className="w-3.5 h-3.5 text-[var(--color-accent)]" />
                   Maintenance Expenditure (TDEE):
                 </span>
                 <strong className="text-[var(--color-text-primary)]">

@@ -317,7 +317,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ defaultMode = 'login' }) => 
           {/* Email Confirmation Notice (if required after signup) */}
           {signupSuccessEmail ? (
             <div className="space-y-5 py-3 text-center">
-              <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-[var(--color-accent)] flex items-center justify-center mx-auto border border-emerald-500/20">
+              <div className="w-12 h-12 rounded-full bg-[var(--color-accent-subtle)] text-[var(--color-accent)] flex items-center justify-center mx-auto border border-[var(--color-accent)]/20">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <div className="space-y-2">
@@ -342,7 +342,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ defaultMode = 'login' }) => 
             /* Forgot Password Flow */
             forgotSuccess ? (
               <div className="space-y-5 py-3 text-center">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-[var(--color-accent)] flex items-center justify-center mx-auto border border-emerald-500/20">
+                <div className="w-12 h-12 rounded-full bg-[var(--color-accent-subtle)] text-[var(--color-accent)] flex items-center justify-center mx-auto border border-[var(--color-accent)]/20">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <div className="space-y-2">
@@ -421,7 +421,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ defaultMode = 'login' }) => 
             /* Update Password Flow */
             updateSuccess ? (
               <div className="space-y-5 py-3 text-center">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-[var(--color-accent)] flex items-center justify-center mx-auto border border-emerald-500/20">
+                <div className="w-12 h-12 rounded-full bg-[var(--color-accent-subtle)] text-[var(--color-accent)] flex items-center justify-center mx-auto border border-[var(--color-accent)]/20">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <div className="space-y-2">

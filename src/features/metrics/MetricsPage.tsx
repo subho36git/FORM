@@ -110,7 +110,7 @@ const MetricsPageContent: React.FC = () => {
               : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
           )}
         >
-          <Layers className="w-3.5 h-3.5 text-blue-500" />
+          <Layers className="w-3.5 h-3.5 text-[var(--color-accent)]" />
           <span>Overview</span>
         </button>
 
@@ -124,7 +124,7 @@ const MetricsPageContent: React.FC = () => {
               : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
           )}
         >
-          <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
+          <TrendingUp className="w-3.5 h-3.5 text-[var(--color-accent)]" />
           <span>Progression Trends</span>
         </button>
 
@@ -152,7 +152,7 @@ const MetricsPageContent: React.FC = () => {
               : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
           )}
         >
-          <Camera className="w-3.5 h-3.5 text-purple-500" />
+          <Camera className="w-3.5 h-3.5 text-[var(--color-lavender)]" />
           <span>Progress Photos ({photos.length})</span>
         </button>
 

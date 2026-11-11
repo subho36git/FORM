@@ -364,7 +364,7 @@ export const RoutineEditorModal: React.FC<RoutineEditorModalProps> = ({
 
                       <div>
                         <span className="text-[10px] font-semibold text-[var(--color-text-secondary)] flex items-center gap-1 mb-1">
-                          <Repeat className="w-3 h-3 text-blue-500" /> Rep Range
+                          <Repeat className="w-3 h-3 text-[var(--color-accent)]" /> Rep Range
                         </span>
                         <Input
                           type="text"

@@ -83,9 +83,9 @@ export const FoodLoggingMealCard: React.FC<FoodLoggingMealCardProps> = ({ summar
                 <th className="py-2.5 px-3.5">Food Item</th>
                 <th className="py-2.5 px-2 text-right">Qty</th>
                 <th className="py-2.5 px-2 text-right">Kcal</th>
-                <th className="py-2.5 px-2 text-right text-blue-500">P (g)</th>
-                <th className="py-2.5 px-2 text-right text-amber-500">C (g)</th>
-                <th className="py-2.5 px-2 text-right text-purple-500">F (g)</th>
+                <th className="py-2.5 px-2 text-right text-[var(--color-accent-text)]">P (g)</th>
+                <th className="py-2.5 px-2 text-right text-[var(--color-accent-secondary-text)]">C (g)</th>
+                <th className="py-2.5 px-2 text-right text-[var(--color-lavender-text)]">F (g)</th>
                 <th className="py-2.5 px-3 text-right">Actions</th>
               </tr>
             </thead>
@@ -101,13 +101,13 @@ export const FoodLoggingMealCard: React.FC<FoodLoggingMealCardProps> = ({ summar
                   <td className="py-2 px-2 text-right font-semibold text-[var(--color-text-primary)]">
                     {item.calories}
                   </td>
-                  <td className="py-2 px-2 text-right font-medium text-blue-600 dark:text-blue-400">
+                  <td className="py-2 px-2 text-right font-medium text-[var(--color-accent-text)]">
                     {item.protein_g}g
                   </td>
-                  <td className="py-2 px-2 text-right font-medium text-amber-600 dark:text-amber-400">
+                  <td className="py-2 px-2 text-right font-medium text-[var(--color-accent-secondary-text)]">
                     {item.carbs_g}g
                   </td>
-                  <td className="py-2 px-2 text-right font-medium text-purple-600 dark:text-purple-400">
+                  <td className="py-2 px-2 text-right font-medium text-[var(--color-lavender-text)]">
                     {item.fat_g}g
                   </td>
                   <td className="py-2 px-3 text-right">
@@ -143,13 +143,13 @@ export const FoodLoggingMealCard: React.FC<FoodLoggingMealCardProps> = ({ summar
                 <td className="py-2.5 px-2 text-right text-xs font-black">
                   {totalCalories.toLocaleString()}
                 </td>
-                <td className="py-2.5 px-2 text-right text-xs text-blue-600 dark:text-blue-400">
+                <td className="py-2.5 px-2 text-right text-xs text-[var(--color-accent-text)]">
                   {totalProtein}g
                 </td>
-                <td className="py-2.5 px-2 text-right text-xs text-amber-600 dark:text-amber-400">
+                <td className="py-2.5 px-2 text-right text-xs text-[var(--color-accent-secondary-text)]">
                   {totalCarbs}g
                 </td>
-                <td className="py-2.5 px-2 text-right text-xs text-purple-600 dark:text-purple-400">
+                <td className="py-2.5 px-2 text-right text-xs text-[var(--color-lavender-text)]">
                   {totalFat}g
                 </td>
                 <td className="py-2.5 px-3"></td>

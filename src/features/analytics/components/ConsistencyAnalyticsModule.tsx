@@ -397,7 +397,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
           <div className="flex items-center gap-2 mb-1">
             <Badge variant="accent">Habit Matrix</Badge>
             <span className="text-xs text-[var(--color-text-muted)] flex items-center gap-1">
-              <Activity className="w-3.5 h-3.5 text-emerald-500" />
+              <Activity className="w-3.5 h-3.5 text-[var(--color-accent)]" />
               Consistency & Habit Intelligence
             </span>
           </div>
@@ -511,7 +511,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
             <CardContent className="p-4 space-y-1">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                 <span>Longest Workout Streak</span>
-                <Award className="w-3.5 h-3.5 text-purple-500" />
+                <Award className="w-3.5 h-3.5 text-[var(--color-lavender)]" />
               </div>
               <div className="text-2xl font-bold font-mono text-[var(--color-text-primary)] flex items-baseline gap-1">
                 <span>{isLoadingSessions ? '—' : workoutStreaks.longestStreakDays}</span>
@@ -528,7 +528,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
             <CardContent className="p-4 space-y-1">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                 <span>Avg Workouts / Week</span>
-                <TrendingUp className="w-3.5 h-3.5 text-blue-500" />
+                <TrendingUp className="w-3.5 h-3.5 text-[var(--color-accent)]" />
               </div>
               <div className="text-2xl font-bold font-mono text-[var(--color-text-primary)] flex items-baseline gap-1">
                 <span>{isLoadingSessions ? '—' : avgWeeklyWorkouts}</span>
@@ -545,7 +545,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
             <CardContent className="p-4 space-y-1">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                 <span>Nutrition Logged</span>
-                <Apple className="w-3.5 h-3.5 text-emerald-500" />
+                <Apple className="w-3.5 h-3.5 text-[var(--color-accent-secondary)]" />
               </div>
               <div className="text-2xl font-bold font-mono text-[var(--color-text-primary)] flex items-baseline gap-1">
                 <span>{isLoadingNutrition ? '—' : nutritionConsistency.loggedDaysCount}</span>
@@ -562,7 +562,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
             <CardContent className="p-4 space-y-1">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                 <span>Nutrition Streak</span>
-                <Flame className="w-3.5 h-3.5 text-emerald-500" />
+                <Flame className="w-3.5 h-3.5 text-[var(--color-accent-secondary)]" />
               </div>
               <div className="text-2xl font-bold font-mono text-[var(--color-text-primary)] flex items-baseline gap-1">
                 <span>{isLoadingNutrition ? '—' : nutritionStreaks.currentStreakDays}</span>
@@ -631,7 +631,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
               onClick={() => setWeeklyMetric('nutrition')}
               className={`px-2.5 py-1 rounded-md font-semibold transition-all cursor-pointer ${
                 weeklyMetric === 'nutrition'
-                  ? 'bg-[var(--color-surface)] text-emerald-600 dark:text-emerald-400 shadow-xs'
+                  ? 'bg-[var(--color-surface)] text-[var(--color-accent-secondary-text)] shadow-xs'
                   : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
               }`}
             >
@@ -642,7 +642,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
               onClick={() => setWeeklyMetric('weight')}
               className={`px-2.5 py-1 rounded-md font-semibold transition-all cursor-pointer ${
                 weeklyMetric === 'weight'
-                  ? 'bg-[var(--color-surface)] text-blue-500 shadow-xs'
+                  ? 'bg-[var(--color-surface)] text-[var(--color-lavender-text)] shadow-xs'
                   : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
               }`}
             >
@@ -653,7 +653,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
               onClick={() => setWeeklyMetric('sets')}
               className={`px-2.5 py-1 rounded-md font-semibold transition-all cursor-pointer ${
                 weeklyMetric === 'sets'
-                  ? 'bg-[var(--color-surface)] text-purple-500 shadow-xs'
+                  ? 'bg-[var(--color-surface)] text-[var(--color-accent-text)] shadow-xs'
                   : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
               }`}
             >
@@ -664,7 +664,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
               onClick={() => setWeeklyMetric('volume')}
               className={`px-2.5 py-1 rounded-md font-semibold transition-all cursor-pointer ${
                 weeklyMetric === 'volume'
-                  ? 'bg-[var(--color-surface)] text-amber-500 shadow-xs'
+                  ? 'bg-[var(--color-surface)] text-[var(--color-cyan)] shadow-xs'
                   : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
               }`}
             >
@@ -721,13 +721,13 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
               height={220}
               barColor={
                 weeklyMetric === 'nutrition'
-                  ? '#10B981'
+                  ? 'var(--color-accent-secondary)'
                   : weeklyMetric === 'weight'
-                    ? '#3B82F6'
+                    ? 'var(--color-lavender)'
                     : weeklyMetric === 'sets'
-                      ? '#8B5CF6'
+                      ? 'var(--color-periwinkle)'
                       : weeklyMetric === 'volume'
-                        ? '#F59E0B'
+                        ? 'var(--color-cyan)'
                         : 'var(--color-accent)'
               }
               valueFormatter={(v) =>
@@ -796,7 +796,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
                         <span
                           className={`inline-flex items-center justify-center px-2 py-0.5 rounded-full font-mono font-semibold ${
                             wk.nutritionLoggedDays >= 5
-                              ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400'
+                              ? 'bg-[var(--color-accent-secondary-subtle)] text-[var(--color-accent-secondary-text)]'
                               : wk.nutritionLoggedDays > 0
                                 ? 'bg-amber-500/15 text-amber-600 dark:text-amber-400'
                                 : 'text-[var(--color-text-muted)]'
@@ -939,7 +939,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
                       className="flex items-center justify-between p-2 rounded-md bg-[var(--color-surface-hover)]/40 border border-[var(--color-border)] text-xs"
                     >
                       <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
                         <span className="font-mono text-[var(--color-text-primary)]">
                           {p.startDate} to {p.endDate}
                         </span>
@@ -963,7 +963,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
           <CardHeader className="pb-3 border-b border-[var(--color-border-subtle)]">
             <div className="flex items-center justify-between">
               <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                <Apple className="w-4 h-4 text-emerald-500" />
+                <Apple className="w-4 h-4 text-[var(--color-accent-secondary)]" />
                 <span>Nutrition Consistency</span>
               </CardTitle>
               <Badge variant="outline">
@@ -987,7 +987,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
               </div>
               <div className="w-full bg-[var(--color-border)] rounded-full h-2 overflow-hidden">
                 <div
-                  className="bg-emerald-500 h-2 rounded-full transition-all duration-300"
+                  className="bg-[var(--color-accent-secondary)] h-2 rounded-full transition-all duration-300"
                   style={{ width: `${Math.min(100, nutritionConsistency.loggingPercentage)}%` }}
                 />
               </div>
@@ -1073,7 +1073,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
             <CardContent className="p-4 space-y-1">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                 <span>Lifetime Working Sets</span>
-                <Layers className="w-3.5 h-3.5 text-purple-500" />
+                <Layers className="w-3.5 h-3.5 text-[var(--color-lavender)]" />
               </div>
               <div className="text-xl font-bold font-mono text-[var(--color-text-primary)]">
                 {isLoadingSessions ? '—' : lifetimeStats.lifetimeWorkingSets.toLocaleString()}
@@ -1105,7 +1105,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
             <CardContent className="p-4 space-y-1">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                 <span>Lifetime Nutrition Days</span>
-                <Apple className="w-3.5 h-3.5 text-emerald-500" />
+                <Apple className="w-3.5 h-3.5 text-[var(--color-accent-secondary)]" />
               </div>
               <div className="text-xl font-bold font-mono text-[var(--color-text-primary)]">
                 {isLoadingNutrition ? '—' : lifetimeStats.totalNutritionDays.toLocaleString()}
@@ -1121,7 +1121,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
             <CardContent className="p-4 space-y-1">
               <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                 <span>Lifetime Weigh-ins</span>
-                <Scale className="w-3.5 h-3.5 text-blue-500" />
+                <Scale className="w-3.5 h-3.5 text-[var(--color-accent)]" />
               </div>
               <div className="text-xl font-bold font-mono text-[var(--color-text-primary)]">
                 {isLoadingWeightEntries ? '—' : lifetimeStats.totalWeighIns.toLocaleString()}
@@ -1162,7 +1162,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
                   insight.status === 'positive'
                     ? 'border-l-4 border-l-[var(--color-accent)]'
                     : insight.status === 'neutral'
-                      ? 'border-l-4 border-l-blue-500'
+                      ? 'border-l-4 border-l-[var(--color-accent-secondary)]'
                       : 'border-l-4 border-l-amber-500'
                 }`}
               >
@@ -1171,7 +1171,7 @@ export const ConsistencyAnalyticsModule: React.FC = () => {
                     {insight.status === 'positive' ? (
                       <CheckCircle2 className="w-4 h-4 text-[var(--color-accent)]" />
                     ) : (
-                      <Info className="w-4 h-4 text-blue-500" />
+                      <Info className="w-4 h-4 text-[var(--color-accent-secondary)]" />
                     )}
                   </div>
                   <div className="space-y-1">

@@ -125,7 +125,7 @@ export const ExerciseProgressCard: React.FC = () => {
               <div className="p-4 rounded-xl bg-[var(--color-surface-subtle)] border border-[var(--color-border)] space-y-1">
                 <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)] font-semibold uppercase tracking-wider">
                   <span>Best Volume</span>
-                  <Flame className="w-4 h-4 text-blue-500" />
+                  <Flame className="w-4 h-4 text-[var(--color-accent-secondary)]" />
                 </div>
                 <div className="text-2xl font-black text-[var(--color-text-primary)]">
                   {Math.round(kgToDisplay(progress.maxVolumeSessionKg)).toLocaleString()} <span className="text-xs font-semibold text-[var(--color-text-muted)]">{weightUnit}</span>
@@ -137,7 +137,7 @@ export const ExerciseProgressCard: React.FC = () => {
               <div className="p-4 rounded-xl bg-[var(--color-surface-subtle)] border border-[var(--color-border)] space-y-1">
                 <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)] font-semibold uppercase tracking-wider">
                   <span>Completed Sets</span>
-                  <Layers className="w-4 h-4 text-purple-500" />
+                  <Layers className="w-4 h-4 text-[var(--color-lavender)]" />
                 </div>
                 <div className="text-2xl font-black text-[var(--color-text-primary)]">
                   {progress.totalSetsLogged} <span className="text-xs font-semibold text-[var(--color-text-muted)]">sets</span>

@@ -421,7 +421,7 @@ export const BodyProgressModule: React.FC = () => {
               <div
                 className={`p-1.5 rounded-md ${
                   (displayedNetChange || 0) <= 0
-                    ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
+                    ? 'bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)]'
                     : 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
                 }`}
               >
@@ -693,7 +693,7 @@ export const BodyProgressModule: React.FC = () => {
                 key={idx}
                 className={`p-3 rounded-lg border text-xs space-y-1 ${
                   insight.type === 'success'
-                    ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-900 dark:text-emerald-100'
+                    ? 'bg-[var(--color-accent-subtle)] border-[var(--color-accent)]/20 text-[var(--color-accent-text)]'
                     : insight.type === 'warning'
                     ? 'bg-amber-500/5 border-amber-500/20 text-amber-900 dark:text-amber-100'
                     : 'bg-[var(--color-surface-hover)] border-[var(--color-border)] text-[var(--color-text-primary)]'
@@ -747,8 +747,8 @@ export const BodyProgressModule: React.FC = () => {
             </div>
 
             {weighInSuccess ? (
-              <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-center space-y-1.5">
-                <CheckCircle2 className="w-8 h-8 mx-auto" />
+              <div className="p-4 rounded-xl bg-[var(--color-accent-subtle)] border border-[var(--color-accent)]/20 text-[var(--color-accent-text)] text-center space-y-1.5">
+                <CheckCircle2 className="w-8 h-8 mx-auto text-[var(--color-accent)]" />
                 <p className="text-xs font-bold">Weigh-In Saved Successfully!</p>
                 <p className="text-[11px] opacity-80">Updating trendlines and moving averages...</p>
               </div>

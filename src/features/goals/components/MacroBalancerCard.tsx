@@ -209,7 +209,7 @@ export const MacroBalancerCard: React.FC = () => {
               {/* 1. Protein Row */}
               <div className="p-3.5 rounded-xl bg-[var(--color-surface-subtle)] border border-[var(--color-border)] flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[var(--color-accent-subtle)] text-[var(--color-accent)] flex items-center justify-center shrink-0">
                     <ShieldCheck className="w-4 h-4" />
                   </div>
                   <div>
@@ -251,7 +251,7 @@ export const MacroBalancerCard: React.FC = () => {
                     className={cn(
                       'p-1.5 rounded-md border text-xs cursor-pointer transition-colors',
                       isProteinLocked
-                        ? 'border-blue-500 bg-blue-500/10 text-blue-500'
+                        ? 'border-[var(--color-accent)] bg-[var(--color-accent-subtle)] text-[var(--color-accent)]'
                         : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
                     )}
                     title={isProteinLocked ? 'Protein is locked' : 'Protein auto-adjusts'}
@@ -264,7 +264,7 @@ export const MacroBalancerCard: React.FC = () => {
               {/* 2. Carbohydrates Row */}
               <div className="p-3.5 rounded-xl bg-[var(--color-surface-subtle)] border border-[var(--color-border)] flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[var(--color-accent-secondary-subtle)] text-[var(--color-accent-secondary)] flex items-center justify-center shrink-0">
                     <Wheat className="w-4 h-4" />
                   </div>
                   <div>
@@ -306,7 +306,7 @@ export const MacroBalancerCard: React.FC = () => {
                     className={cn(
                       'p-1.5 rounded-md border text-xs cursor-pointer transition-colors',
                       isCarbsLocked
-                        ? 'border-amber-500 bg-amber-500/10 text-amber-500'
+                        ? 'border-[var(--color-accent-secondary)] bg-[var(--color-accent-secondary-subtle)] text-[var(--color-accent-secondary)]'
                         : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
                     )}
                     title={isCarbsLocked ? 'Carbohydrates are locked' : 'Carbohydrates auto-adjust'}
@@ -319,7 +319,7 @@ export const MacroBalancerCard: React.FC = () => {
               {/* 3. Fat Row */}
               <div className="p-3.5 rounded-xl bg-[var(--color-surface-subtle)] border border-[var(--color-border)] flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-500 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[var(--color-lavender-surface)] text-[var(--color-lavender)] flex items-center justify-center shrink-0">
                     <Droplet className="w-4 h-4" />
                   </div>
                   <div>
@@ -361,7 +361,7 @@ export const MacroBalancerCard: React.FC = () => {
                     className={cn(
                       'p-1.5 rounded-md border text-xs cursor-pointer transition-colors',
                       isFatLocked
-                        ? 'border-purple-500 bg-purple-500/10 text-purple-500'
+                        ? 'border-[var(--color-lavender)] bg-[var(--color-lavender-surface)] text-[var(--color-lavender)]'
                         : 'border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
                     )}
                     title={isFatLocked ? 'Fat is locked' : 'Fat auto-adjusts'}

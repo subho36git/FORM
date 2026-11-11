@@ -91,7 +91,7 @@ export const GoalsPage: React.FC = () => {
       )}
 
       {saveSuccess && (
-        <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-[var(--color-accent)] text-xs flex items-center gap-2.5">
+        <div className="p-3.5 rounded-xl bg-[var(--color-accent-subtle)] border border-[var(--color-accent)]/20 text-[var(--color-accent-text)] text-xs flex items-center gap-2.5">
           <CheckCircle2 className="w-4 h-4 shrink-0" />
           <span className="font-medium">
             Goals, target completion date, and macronutrient protocol updated in your profile!

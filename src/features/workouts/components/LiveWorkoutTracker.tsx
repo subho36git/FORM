@@ -141,7 +141,7 @@ export const LiveWorkoutTracker: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-1.5 text-xs font-semibold text-[var(--color-text-primary)] bg-[var(--color-surface)] px-3 py-1 rounded-lg border border-[var(--color-border)]">
-              <Check className="w-3.5 h-3.5 text-blue-500" />
+              <Check className="w-3.5 h-3.5 text-[var(--color-accent)]" />
               <span>
                 {completedSetsCount}/{totalSetsCount} sets
               </span>
@@ -289,7 +289,7 @@ export const LiveWorkoutTracker: React.FC = () => {
                             key={set.id}
                             className={cn(
                               'transition-colors',
-                              set.is_completed && 'bg-emerald-500/5'
+                              set.is_completed && 'bg-[var(--color-accent-subtle)]'
                             )}
                           >
                             {/* Set Number */}

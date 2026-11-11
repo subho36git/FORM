@@ -4,49 +4,107 @@
   :root {
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-    /* Light Theme Tokens */
-    --color-bg: #F8FAFC;
+    /* Light Theme Tokens — Clean & Energetic */
+    --color-bg: #F5F8FF;
     --color-surface: #FFFFFF;
-    --color-surface-hover: #F1F5F9;
-    --color-surface-subtle: #F8FAFC;
-    --color-border: #E2E8F0;
-    --color-border-hover: #CBD5E1;
-    --color-border-subtle: #F1F5F9;
+    --color-surface-hover: #EDF3FC;
+    --color-surface-subtle: #EDF3FC;
+    --color-border: #DCE5F3;
+    --color-border-hover: #C1C8E4;
+    --color-border-subtle: #E8EEF8;
     
-    --color-text-primary: #0F172A;
-    --color-text-secondary: #475569;
-    --color-text-muted: #64748B;
+    --color-text-primary: #25324B;
+    --color-text-secondary: #64748B;
+    --color-text-muted: #8294AB;
 
-    --color-accent: #059669;
-    --color-accent-hover: #047857;
-    --color-accent-subtle: #ECFDF5;
-    --color-accent-text: #065F46;
+    /* Primary Accent (Primary Blue: #5680E9) */
+    --color-accent: #5680E9;
+    --color-accent-hover: #466ECC;
+    --color-accent-subtle: rgba(86, 128, 233, 0.10);
+    --color-accent-text: #375EC4;
 
+    /* Secondary Accent (Bright Cyan Blue: #5AB9EA) */
+    --color-accent-secondary: #5AB9EA;
+    --color-accent-secondary-hover: #44A7D8;
+    --color-accent-secondary-subtle: rgba(90, 185, 234, 0.12);
+    --color-accent-secondary-text: #1E86BA;
+
+    /* Brand Supporting Tokens */
+    --color-cyan: #84CEEB;
+    --color-cyan-subtle: rgba(132, 206, 235, 0.15);
+    --color-periwinkle: #C1C8E4;
+    --color-periwinkle-subtle: rgba(193, 200, 228, 0.20);
+    --color-lavender: #8860D0;
+    --color-lavender-surface: #F0EBFA;
+    --color-lavender-subtle: rgba(136, 96, 208, 0.12);
+    --color-lavender-text: #6941B3;
+
+    /* Status Tokens */
+    --color-success: #10B981;
+    --color-success-subtle: rgba(16, 185, 129, 0.10);
     --color-danger: #EF4444;
+    --color-danger-subtle: rgba(239, 68, 68, 0.10);
     --color-warning: #F59E0B;
+    --color-warning-subtle: rgba(245, 158, 11, 0.10);
+
+    /* Chart Colour System Tokens */
+    --chart-primary: #5680E9;
+    --chart-secondary: #5AB9EA;
+    --chart-tertiary: #8860D0;
+    --chart-supporting: #84CEEB;
+    --chart-neutral: #94A3B8;
   }
 
   .dark {
-    /* Dark Theme Tokens (Deep Obsidian Slate) */
-    --color-bg: #090D16;
-    --color-surface: #111827;
-    --color-surface-hover: #1A2234;
-    --color-surface-subtle: #0D1322;
-    --color-border: #1F2937;
-    --color-border-hover: #374151;
-    --color-border-subtle: #161F30;
+    /* Dark Theme Tokens — Sophisticated Dark Navy */
+    --color-bg: #101827;
+    --color-surface: #172338;
+    --color-surface-hover: #1B2940;
+    --color-surface-subtle: #141F32;
+    --color-border: #2C3A52;
+    --color-border-hover: #3E5070;
+    --color-border-subtle: #212D42;
 
-    --color-text-primary: #F9FAFB;
-    --color-text-secondary: #9CA3AF;
-    --color-text-muted: #94A3B8;
+    --color-text-primary: #F0F4FF;
+    --color-text-secondary: #AAB8D0;
+    --color-text-muted: #7E91B2;
 
-    --color-accent: #10B981;
-    --color-accent-hover: #34D399;
-    --color-accent-subtle: rgba(16, 185, 129, 0.12);
-    --color-accent-text: #6EE7B7;
+    /* Primary Accent (High Contrast Vibrant Blue: #84A7FF) */
+    --color-accent: #84A7FF;
+    --color-accent-hover: #A5BEFF;
+    --color-accent-subtle: rgba(132, 167, 255, 0.14);
+    --color-accent-text: #BFD4FF;
 
+    /* Secondary Accent (Sky Cyan: #84CEEB) */
+    --color-accent-secondary: #84CEEB;
+    --color-accent-secondary-hover: #A0DDF4;
+    --color-accent-secondary-subtle: rgba(132, 206, 235, 0.14);
+    --color-accent-secondary-text: #B2E5F7;
+
+    /* Brand Supporting Tokens */
+    --color-cyan: #84CEEB;
+    --color-cyan-subtle: rgba(132, 206, 235, 0.14);
+    --color-periwinkle: #C1C8E4;
+    --color-periwinkle-subtle: rgba(193, 200, 228, 0.14);
+    --color-lavender: #A784E8;
+    --color-lavender-surface: #352B4D;
+    --color-lavender-subtle: rgba(167, 132, 232, 0.16);
+    --color-lavender-text: #D2BEF7;
+
+    /* Status Tokens */
+    --color-success: #34D399;
+    --color-success-subtle: rgba(52, 211, 153, 0.14);
     --color-danger: #F87171;
+    --color-danger-subtle: rgba(248, 113, 113, 0.14);
     --color-warning: #FBBF24;
+    --color-warning-subtle: rgba(251, 191, 36, 0.14);
+
+    /* Chart Colour System Tokens */
+    --chart-primary: #84A7FF;
+    --chart-secondary: #84CEEB;
+    --chart-tertiary: #A784E8;
+    --chart-supporting: #5AB9EA;
+    --chart-neutral: #64748B;
   }
 
   * {

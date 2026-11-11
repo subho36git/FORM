@@ -494,7 +494,7 @@ export const SettingsPage: React.FC = () => {
       value: 'dark',
       title: 'Dark Mode',
       desc: 'Deep obsidian slate surfaces designed for low eye-strain.',
-      icon: <Moon className="w-5 h-5 text-blue-400" />,
+      icon: <Moon className="w-5 h-5 text-[var(--color-accent)]" />,
     },
     {
       value: 'system',
@@ -517,7 +517,7 @@ export const SettingsPage: React.FC = () => {
       value: 'imperial',
       title: 'Imperial System',
       desc: 'Standard units using pounds, feet/inches, and fluid ounces.',
-      icon: <Ruler className="w-5 h-5 text-purple-400" />,
+      icon: <Ruler className="w-5 h-5 text-[var(--color-lavender)]" />,
       specs: 'Weight in lb • Height in ft/in • Intake in kcal & g',
     },
   ]
@@ -530,7 +530,7 @@ export const SettingsPage: React.FC = () => {
           <div className="flex items-center gap-2 mb-1">
             <Badge variant="accent">Preferences & Profile</Badge>
             <span className="text-xs text-[var(--color-text-muted)] flex items-center gap-1">
-              <Sliders className="w-3.5 h-3.5 text-blue-400" /> Application Control
+              <Sliders className="w-3.5 h-3.5 text-[var(--color-accent)]" /> Application Control
             </span>
           </div>
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--color-text-primary)]">
@@ -579,7 +579,7 @@ export const SettingsPage: React.FC = () => {
               : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
           )}
         >
-          <User className="w-3.5 h-3.5 text-blue-500" />
+          <User className="w-3.5 h-3.5 text-[var(--color-accent)]" />
           <span>Athlete Profile</span>
         </button>
 
@@ -593,7 +593,7 @@ export const SettingsPage: React.FC = () => {
               : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
           )}
         >
-          <Flame className="w-3.5 h-3.5 text-emerald-500" />
+          <Flame className="w-3.5 h-3.5 text-[var(--color-accent)]" />
           <span>Nutrition & Targets</span>
         </button>
 
@@ -607,7 +607,7 @@ export const SettingsPage: React.FC = () => {
               : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
           )}
         >
-          <Shield className="w-3.5 h-3.5 text-purple-500" />
+          <Shield className="w-3.5 h-3.5 text-[var(--color-lavender)]" />
           <span>Account & Security</span>
         </button>
       </div>
@@ -713,7 +713,7 @@ export const SettingsPage: React.FC = () => {
               <div className="p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-hover)]/30 space-y-2">
                 <div className="flex items-center justify-between text-xs">
                   <span className="font-semibold text-[var(--color-text-primary)] flex items-center gap-1.5">
-                    <Info className="w-3.5 h-3.5 text-blue-400" /> Conversion Integrity Standard
+                    <Info className="w-3.5 h-3.5 text-[var(--color-accent)]" /> Conversion Integrity Standard
                   </span>
                   <Badge variant="outline">Active: {unitSystem === 'metric' ? 'Metric (kg, cm)' : 'Imperial (lb, ft/in)'}</Badge>
                 </div>
@@ -763,7 +763,7 @@ export const SettingsPage: React.FC = () => {
             <CardContent className="p-5 space-y-5">
               {/* Feedback Alerts */}
               {profileSuccess && (
-                <div className="p-3.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs flex items-center gap-2">
+                <div className="p-3.5 rounded-lg border border-[var(--color-accent)]/30 bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)] text-xs flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
                   <span>{profileSuccess}</span>
                 </div>
@@ -1051,7 +1051,7 @@ export const SettingsPage: React.FC = () => {
             <CardContent className="p-5 space-y-6">
               {/* Feedback Alerts */}
               {targetsSuccess && (
-                <div className="p-3.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs flex items-center gap-2">
+                <div className="p-3.5 rounded-lg border border-[var(--color-accent)]/30 bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)] text-xs flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
                   <span>{targetsSuccess}</span>
                 </div>
@@ -1163,7 +1163,7 @@ export const SettingsPage: React.FC = () => {
                     <label className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
                       Protein Target
                     </label>
-                    <span className="text-[10px] text-blue-500 font-mono font-semibold">
+                    <span className="text-[10px] text-[var(--color-accent)] font-mono font-semibold">
                       {enteredProtein * 4} kcal
                     </span>
                   </div>
@@ -1191,7 +1191,7 @@ export const SettingsPage: React.FC = () => {
                     <label className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
                       Carbohydrates
                     </label>
-                    <span className="text-[10px] text-emerald-500 font-mono font-semibold">
+                    <span className="text-[10px] text-[var(--color-accent-secondary)] font-mono font-semibold">
                       {enteredCarbs * 4} kcal
                     </span>
                   </div>
@@ -1219,7 +1219,7 @@ export const SettingsPage: React.FC = () => {
                     <label className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
                       Fat Target
                     </label>
-                    <span className="text-[10px] text-purple-500 font-mono font-semibold">
+                    <span className="text-[10px] text-[var(--color-lavender)] font-mono font-semibold">
                       {enteredFat * 9} kcal
                     </span>
                   </div>
@@ -1250,7 +1250,7 @@ export const SettingsPage: React.FC = () => {
                   </span>
                   <div className="flex items-center gap-2 font-mono text-[11px]">
                     <span className="text-[var(--color-text-muted)]">Sum of Macros:</span>
-                    <span className={cn('font-bold', Math.abs(macroDelta) > 50 ? 'text-amber-500' : 'text-emerald-500')}>
+                    <span className={cn('font-bold', Math.abs(macroDelta) > 50 ? 'text-amber-500' : 'text-[var(--color-accent)]')}>
                       {calculatedMacroKcal} kcal
                     </span>
                     <span className="text-[var(--color-text-muted)]">/ Target: {enteredCalories} kcal</span>
@@ -1260,32 +1260,32 @@ export const SettingsPage: React.FC = () => {
                 {/* Proportional Stack Bar */}
                 <div className="w-full bg-[var(--color-surface-hover)] rounded-full h-3 flex overflow-hidden">
                   <div
-                    style={{ width: `${Math.min(100, proteinPct)}%` }}
-                    className="bg-blue-500 h-full transition-all duration-300"
+                    style={{ width: `${Math.min(100, proteinPct)}%`, backgroundColor: 'var(--chart-primary)' }}
+                    className="h-full transition-all duration-300"
                     title={`Protein: ${proteinPct}%`}
                   />
                   <div
-                    style={{ width: `${Math.min(100, carbsPct)}%` }}
-                    className="bg-emerald-500 h-full transition-all duration-300"
+                    style={{ width: `${Math.min(100, carbsPct)}%`, backgroundColor: 'var(--chart-secondary)' }}
+                    className="h-full transition-all duration-300"
                     title={`Carbs: ${carbsPct}%`}
                   />
                   <div
-                    style={{ width: `${Math.min(100, fatPct)}%` }}
-                    className="bg-purple-500 h-full transition-all duration-300"
+                    style={{ width: `${Math.min(100, fatPct)}%`, backgroundColor: 'var(--chart-tertiary)' }}
+                    className="h-full transition-all duration-300"
                     title={`Fat: ${fatPct}%`}
                   />
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
                   <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1.5 text-blue-500 font-medium text-[11px]">
-                      <span className="w-2 h-2 rounded-full bg-blue-500" /> Protein {proteinPct}%
+                    <span className="flex items-center gap-1.5 font-medium text-[11px]" style={{ color: 'var(--chart-primary)' }}>
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--chart-primary)' }} /> Protein {proteinPct}%
                     </span>
-                    <span className="flex items-center gap-1.5 text-emerald-500 font-medium text-[11px]">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" /> Carbs {carbsPct}%
+                    <span className="flex items-center gap-1.5 font-medium text-[11px]" style={{ color: 'var(--chart-secondary)' }}>
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--chart-secondary)' }} /> Carbs {carbsPct}%
                     </span>
-                    <span className="flex items-center gap-1.5 text-purple-500 font-medium text-[11px]">
-                      <span className="w-2 h-2 rounded-full bg-purple-500" /> Fat {fatPct}%
+                    <span className="flex items-center gap-1.5 font-medium text-[11px]" style={{ color: 'var(--chart-tertiary)' }}>
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--chart-tertiary)' }} /> Fat {fatPct}%
                     </span>
                   </div>
 
@@ -1373,7 +1373,7 @@ export const SettingsPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-5 space-y-4">
                 {passwordSuccess && (
-                  <div className="p-3.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs flex items-center gap-2">
+                  <div className="p-3.5 rounded-lg border border-[var(--color-accent)]/30 bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)] text-xs flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 shrink-0" />
                     <span>{passwordSuccess}</span>
                   </div>

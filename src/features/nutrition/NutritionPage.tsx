@@ -159,10 +159,10 @@ const NutritionPageContent: React.FC = () => {
             </Badge>
           ) : (
             <Badge
-              variant="outline"
-              className="flex items-center gap-1 text-xs py-1 text-emerald-600 dark:text-emerald-400 border-emerald-500/20 bg-emerald-500/5"
+              variant="accent"
+              className="flex items-center gap-1 text-xs py-1"
             >
-              <CheckCircle className="w-3 h-3 text-emerald-500" />
+              <CheckCircle className="w-3 h-3 text-[var(--color-accent)]" />
               Open Day
             </Badge>
           )}

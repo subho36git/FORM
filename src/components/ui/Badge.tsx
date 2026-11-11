@@ -2,7 +2,7 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'accent' | 'outline' | 'warning' | 'danger'
+  variant?: 'default' | 'accent' | 'outline' | 'warning' | 'danger' | 'cyan' | 'lavender'
 }
 
 export const Badge: React.FC<BadgeProps> = ({
@@ -16,6 +16,10 @@ export const Badge: React.FC<BadgeProps> = ({
       'bg-[var(--color-surface-hover)] text-[var(--color-text-secondary)] border border-[var(--color-border)]',
     accent:
       'bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)] border border-[var(--color-accent)]/20',
+    cyan:
+      'bg-[var(--color-accent-secondary-subtle)] text-[var(--color-accent-secondary-text)] border border-[var(--color-accent-secondary)]/20',
+    lavender:
+      'bg-[var(--color-lavender-surface)] text-[var(--color-lavender-text)] border border-[var(--color-lavender)]/20',
     outline:
       'bg-transparent text-[var(--color-text-secondary)] border border-[var(--color-border)]',
     warning:

@@ -156,7 +156,7 @@ export const MeasurementHistoryTable: React.FC<MeasurementHistoryTableProps> = (
                       {/* Weight */}
                       <td className="py-3 px-4 text-[var(--color-text-secondary)]">
                         {weight !== null ? (
-                          <span className="font-mono flex items-center gap-1 text-blue-500 font-medium">
+                          <span className="font-mono flex items-center gap-1 text-[var(--color-accent)] font-medium">
                             <Scale className="w-3 h-3" /> {formatWeight(weight)}
                           </span>
                         ) : (

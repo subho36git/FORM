@@ -43,10 +43,10 @@ const MEAL_CATEGORY_LABELS: Record<MealCategory, string> = {
 }
 
 const MEAL_CATEGORY_COLORS: Record<MealCategory, string> = {
-  breakfast: '#F59E0B', // Amber
-  lunch: '#10B981', // Emerald
-  dinner: '#3B82F6', // Blue
-  snack: '#8B5CF6', // Purple
+  breakfast: '#84CEEB', // Sky Cyan
+  lunch: '#5680E9', // Primary Blue
+  dinner: '#8860D0', // Lavender
+  snack: '#5AB9EA', // Bright Cyan Blue
 }
 
 export const NutritionAnalyticsModule: React.FC = () => {
@@ -261,7 +261,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
         id: 'macro-protein',
         name: 'Protein',
         data: loggedDays.map((d) => ({ x: d.logDate, y: d.proteinG, label: 'Protein' })),
-        color: '#3B82F6', // Blue
+        color: '#5680E9', // Primary Blue
         isDashed: false,
         showAreaGradient: false,
         showPoints: true,
@@ -270,7 +270,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
         id: 'macro-carbs',
         name: 'Carbohydrates',
         data: loggedDays.map((d) => ({ x: d.logDate, y: d.carbsG, label: 'Carbs' })),
-        color: '#F59E0B', // Amber
+        color: '#5AB9EA', // Bright Cyan Blue
         isDashed: false,
         showAreaGradient: false,
         showPoints: true,
@@ -279,7 +279,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
         id: 'macro-fat',
         name: 'Fat',
         data: loggedDays.map((d) => ({ x: d.logDate, y: d.fatG, label: 'Fat' })),
-        color: '#EC4899', // Pink
+        color: '#8860D0', // Lavender
         isDashed: false,
         showAreaGradient: false,
         showPoints: true,
@@ -300,21 +300,21 @@ export const NutritionAnalyticsModule: React.FC = () => {
         id: 'protein',
         label: 'Protein (4 kcal/g)',
         value: macroPercentages.proteinPercent,
-        color: '#3B82F6',
+        color: '#5680E9',
         subLabel: `${avgMacros.averageProteinG.toFixed(1)}g avg • ${pKcal} kcal`,
       },
       {
         id: 'carbs',
         label: 'Carbs (4 kcal/g)',
         value: macroPercentages.carbsPercent,
-        color: '#F59E0B',
+        color: '#5AB9EA',
         subLabel: `${avgMacros.averageCarbsG.toFixed(1)}g avg • ${cKcal} kcal`,
       },
       {
         id: 'fat',
         label: 'Fat (9 kcal/g)',
         value: macroPercentages.fatPercent,
-        color: '#EC4899',
+        color: '#8860D0',
         subLabel: `${avgMacros.averageFatG.toFixed(1)}g avg • ${fKcal} kcal`,
       },
     ]
@@ -367,7 +367,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
           y: d.fiberG,
           label: 'Fibre Intake',
         })),
-        color: '#10B981', // Emerald
+        color: '#84CEEB', // Sky Cyan (Supporting Series)
         isDashed: false,
         showAreaGradient: true,
         showPoints: true,
@@ -619,12 +619,12 @@ export const NutritionAnalyticsModule: React.FC = () => {
               <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Avg Protein
               </span>
-              <div className="p-1.5 rounded-md bg-blue-500/10 text-blue-500">
+              <div className="p-1.5 rounded-md bg-[var(--color-accent-subtle)] text-[var(--color-accent)]">
                 <Dumbbell className="w-3.5 h-3.5" />
               </div>
             </div>
             <div className="mt-2 flex items-baseline gap-1">
-              <span className="text-xl sm:text-2xl font-bold text-blue-500 font-mono">
+              <span className="text-xl sm:text-2xl font-bold text-[var(--color-accent)] font-mono">
                 {avgMacros.averageProteinG.toFixed(1)}
               </span>
               <span className="text-[11px] text-[var(--color-text-muted)] font-medium">g</span>
@@ -688,12 +688,12 @@ export const NutritionAnalyticsModule: React.FC = () => {
               <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Avg Fibre
               </span>
-              <div className="p-1.5 rounded-md bg-emerald-500/10 text-emerald-500">
+              <div className="p-1.5 rounded-md bg-[var(--color-cyan-subtle)] text-[var(--color-cyan)]">
                 <Apple className="w-3.5 h-3.5" />
               </div>
             </div>
             <div className="mt-2 flex items-baseline gap-1">
-              <span className="text-xl sm:text-2xl font-bold text-emerald-500 font-mono">
+              <span className="text-xl sm:text-2xl font-bold text-[var(--color-cyan)] font-mono">
                 {avgMacros.averageFiberG.toFixed(1)}
               </span>
               <span className="text-[11px] text-[var(--color-text-muted)] font-medium">g</span>
@@ -774,7 +774,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle className="text-base flex items-center gap-2">
-                  <PieChart className="w-4 h-4 text-blue-500" />
+                  <PieChart className="w-4 h-4 text-[var(--color-accent)]" />
                   <span>Macro Calorie Distribution</span>
                 </CardTitle>
                 <CardDescription className="text-xs">
@@ -795,8 +795,8 @@ export const NutritionAnalyticsModule: React.FC = () => {
 
             {/* Target vs Actual Macro Table */}
             <div className="grid grid-cols-3 gap-2 pt-3 border-t border-[var(--color-border-subtle)] text-center text-xs">
-              <div className="p-2 rounded-lg bg-blue-500/5 border border-blue-500/10">
-                <span className="text-[10px] uppercase font-semibold text-blue-500 block">Protein</span>
+              <div className="p-2 rounded-lg bg-[var(--color-accent-subtle)] border border-[var(--color-accent)]/20">
+                <span className="text-[10px] uppercase font-semibold text-[var(--color-accent-text)] block">Protein</span>
                 <span className="text-sm font-bold text-[var(--color-text-primary)] font-mono block">
                   {avgMacros.averageProteinG.toFixed(1)}g
                 </span>
@@ -805,8 +805,8 @@ export const NutritionAnalyticsModule: React.FC = () => {
                 </span>
               </div>
 
-              <div className="p-2 rounded-lg bg-amber-500/5 border border-amber-500/10">
-                <span className="text-[10px] uppercase font-semibold text-amber-500 block">Carbs</span>
+              <div className="p-2 rounded-lg bg-[var(--color-accent-secondary-subtle)] border border-[var(--color-accent-secondary)]/20">
+                <span className="text-[10px] uppercase font-semibold text-[var(--color-accent-secondary-text)] block">Carbs</span>
                 <span className="text-sm font-bold text-[var(--color-text-primary)] font-mono block">
                   {avgMacros.averageCarbsG.toFixed(1)}g
                 </span>
@@ -815,8 +815,8 @@ export const NutritionAnalyticsModule: React.FC = () => {
                 </span>
               </div>
 
-              <div className="p-2 rounded-lg bg-pink-500/5 border border-pink-500/10">
-                <span className="text-[10px] uppercase font-semibold text-pink-500 block">Fat</span>
+              <div className="p-2 rounded-lg bg-[var(--color-lavender-surface)] border border-[var(--color-lavender)]/20">
+                <span className="text-[10px] uppercase font-semibold text-[var(--color-lavender-text)] block">Fat</span>
                 <span className="text-sm font-bold text-[var(--color-text-primary)] font-mono block">
                   {avgMacros.averageFatG.toFixed(1)}g
                 </span>
@@ -832,7 +832,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
         <Card className="flex flex-col justify-between">
           <CardHeader className="pb-3 border-b border-[var(--color-border-subtle)]">
             <CardTitle className="text-base flex items-center gap-2">
-              <Activity className="w-4 h-4 text-purple-500" />
+              <Activity className="w-4 h-4 text-[var(--color-accent)]" />
               <span>Daily Macronutrient Quantities (g)</span>
             </CardTitle>
             <CardDescription className="text-xs">
@@ -867,7 +867,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
 
             {/* Adherence Summary Badges */}
             <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-500 font-semibold">
+              <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)] font-semibold">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>On Target: {targetAdherence.adherentDaysCount}d</span>
               </span>
@@ -901,7 +901,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
                         title={`Below Target: ${targetAdherence.belowTargetDaysCount ?? 0} days`}
                       />
                       <div
-                        className="bg-emerald-500 h-full transition-all"
+                        className="bg-[var(--color-accent)] h-full transition-all"
                         style={{
                           width: `${(targetAdherence.adherentDaysCount / targetAdherence.totalLoggedDays) * 100}%`,
                         }}
@@ -947,7 +947,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <CardTitle className="text-base flex items-center gap-2">
-                  <Apple className="w-4 h-4 text-emerald-500" />
+                  <Apple className="w-4 h-4 text-[var(--color-cyan)]" />
                   <span>Dietary Fibre Tracking</span>
                 </CardTitle>
                 <CardDescription className="text-xs">
@@ -970,7 +970,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
             />
             <div className="flex items-center justify-between p-2.5 rounded-lg bg-[var(--color-surface-hover)] border border-[var(--color-border)] text-xs text-[var(--color-text-secondary)]">
               <span className="flex items-center gap-1.5">
-                <Info className="w-3.5 h-3.5 text-emerald-500" />
+                <Info className="w-3.5 h-3.5 text-[var(--color-cyan)]" />
                 <span>General Guideline: 30g/day reference</span>
               </span>
               <span className="font-semibold text-[var(--color-text-primary)] font-mono">
@@ -1051,7 +1051,7 @@ export const NutritionAnalyticsModule: React.FC = () => {
                   key={insight.id}
                   className={`p-3.5 rounded-xl border transition-all ${
                     insight.status === 'positive'
-                      ? 'border-emerald-500/20 bg-emerald-500/5'
+                      ? 'border-[var(--color-accent)]/20 bg-[var(--color-accent-subtle)]'
                       : insight.status === 'warning'
                       ? 'border-amber-500/20 bg-amber-500/5'
                       : 'border-[var(--color-border)] bg-[var(--color-surface-hover)]/40'

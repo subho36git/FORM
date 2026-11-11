@@ -58,7 +58,7 @@ export const MeasurementSummaryCards: React.FC = () => {
     return (
       <span
         className={`text-[11px] flex items-center gap-0.5 font-medium ${
-          isPositive ? 'text-amber-500' : 'text-blue-500'
+          isPositive ? 'text-amber-500' : 'text-[var(--color-accent)]'
         }`}
       >
         {isPositive ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
@@ -87,7 +87,7 @@ export const MeasurementSummaryCards: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Bodyweight
               </span>
-              <div className="p-2 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
+              <div className="p-2 rounded-lg bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)]">
                 <Scale className="w-4 h-4" />
               </div>
             </div>
@@ -112,7 +112,7 @@ export const MeasurementSummaryCards: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Waist
               </span>
-              <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+              <div className="p-2 rounded-lg bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)]">
                 <Ruler className="w-4 h-4" />
               </div>
             </div>
@@ -135,7 +135,7 @@ export const MeasurementSummaryCards: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
                 Chest
               </span>
-              <div className="p-2 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400">
+              <div className="p-2 rounded-lg bg-[var(--color-lavender-surface)] text-[var(--color-lavender-text)]">
                 <Ruler className="w-4 h-4" />
               </div>
             </div>

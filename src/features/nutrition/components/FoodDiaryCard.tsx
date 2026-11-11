@@ -31,25 +31,25 @@ const MEAL_CONFIG: Record<
     title: 'Breakfast',
     icon: Coffee,
     defaultTime: '08:30 AM',
-    colorClass: 'text-amber-500 bg-amber-500/10',
+    colorClass: 'text-[var(--color-accent-secondary-text)] bg-[var(--color-accent-secondary-subtle)]',
   },
   lunch: {
     title: 'Lunch',
     icon: Sun,
     defaultTime: '01:15 PM',
-    colorClass: 'text-orange-500 bg-orange-500/10',
+    colorClass: 'text-[var(--color-accent-text)] bg-[var(--color-accent-subtle)]',
   },
   snack: {
     title: 'Snacks & Supplements',
     icon: Cookie,
     defaultTime: '04:30 PM',
-    colorClass: 'text-emerald-500 bg-emerald-500/10',
+    colorClass: 'text-[var(--color-cyan)] bg-[var(--color-cyan-subtle)]',
   },
   dinner: {
     title: 'Dinner',
     icon: Moon,
     defaultTime: '08:00 PM',
-    colorClass: 'text-indigo-500 bg-indigo-500/10',
+    colorClass: 'text-[var(--color-lavender-text)] bg-[var(--color-lavender-surface)]',
   },
 }
 
@@ -188,11 +188,11 @@ export const FoodDiaryCard: React.FC = () => {
                         {mealCalories} kcal
                       </span>
                       <span>•</span>
-                      <span className="text-blue-600 dark:text-blue-400">{mealProtein}g P</span>
+                      <span className="text-[var(--color-accent-text)]">{mealProtein}g P</span>
                       <span>•</span>
-                      <span className="text-amber-600 dark:text-amber-400">{mealCarbs}g C</span>
+                      <span className="text-[var(--color-accent-secondary-text)]">{mealCarbs}g C</span>
                       <span>•</span>
-                      <span className="text-purple-600 dark:text-purple-400">{mealFat}g F</span>
+                      <span className="text-[var(--color-lavender-text)]">{mealFat}g F</span>
                     </div>
                   </div>
                 </div>
@@ -264,21 +264,21 @@ export const FoodDiaryCard: React.FC = () => {
                                 {item.calories} kcal
                               </span>
                               <span>•</span>
-                              <span className="text-blue-600 dark:text-blue-400">
+                              <span className="text-[var(--color-accent-text)]">
                                 {item.protein_g}g P
                               </span>
                               <span>•</span>
-                              <span className="text-amber-600 dark:text-amber-400">
+                              <span className="text-[var(--color-accent-secondary-text)]">
                                 {item.carbs_g}g C
                               </span>
                               <span>•</span>
-                              <span className="text-purple-600 dark:text-purple-400">
+                              <span className="text-[var(--color-lavender-text)]">
                                 {item.fat_g}g F
                               </span>
                               {Number(item.fiber_g) > 0 && (
                                 <>
                                   <span>•</span>
-                                  <span className="text-emerald-600 dark:text-emerald-400">
+                                  <span className="text-[var(--color-cyan)]">
                                     {item.fiber_g}g Fiber
                                   </span>
                                 </>

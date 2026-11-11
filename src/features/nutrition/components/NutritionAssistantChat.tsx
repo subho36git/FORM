@@ -283,7 +283,7 @@ export const NutritionAssistantChat: React.FC = () => {
                 AI Nutrition Assistant
               </h2>
               <Badge variant="accent" className="text-[10px] py-0 px-1.5 font-medium flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-pulse" />
                 Gemini Active
               </Badge>
             </div>
@@ -406,7 +406,7 @@ export const NutritionAssistantChat: React.FC = () => {
                           className={cn(
                             'text-[10px] font-semibold py-0.5 px-2 rounded-md flex items-center gap-1',
                             act.success
-                              ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400'
+                              ? 'bg-[var(--color-accent-subtle)] border border-[var(--color-accent)]/20 text-[var(--color-accent-text)]'
                               : 'bg-red-500/10 border border-red-500/20 text-red-500'
                           )}
                         >

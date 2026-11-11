@@ -66,8 +66,8 @@ export const BodyTrajectoryCard: React.FC = () => {
   // Safety level badge styling with fallback
   const safetyLevel = safetyEvaluation?.level || 'safe'
   const safetyBadgeStyles: Record<string, string> = {
-    safe: 'bg-emerald-500/10 text-[var(--color-accent)] border-emerald-500/20',
-    moderate: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+    safe: 'bg-[var(--color-accent-subtle)] text-[var(--color-accent-text)] border-[var(--color-accent)]/20',
+    moderate: 'bg-[var(--color-accent-secondary-subtle)] text-[var(--color-accent-secondary-text)] border-[var(--color-accent-secondary)]/20',
     aggressive: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
     extreme: 'bg-red-500/10 text-red-500 border-red-500/20',
   }
@@ -318,10 +318,10 @@ export const BodyTrajectoryCard: React.FC = () => {
               <div className="p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-blue-500" />
+                    <Clock className="w-3.5 h-3.5 text-[var(--color-accent)]" />
                     Projected Date (Estimate)
                   </span>
-                  <span className="text-[10px] font-bold text-blue-500 uppercase">
+                  <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase">
                     {projectedResult?.isTheoretical ? 'Theoretical' : 'Trend-Calibrated'}
                   </span>
                 </div>

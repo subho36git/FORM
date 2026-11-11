@@ -127,7 +127,7 @@ export const WeighInHistoryCard: React.FC = () => {
 
         {/* Adaptive TDEE Status Notice */}
         <div className="p-3.5 rounded-xl bg-[var(--color-surface-subtle)] border border-[var(--color-border)] text-xs text-[var(--color-text-secondary)] flex items-start gap-2.5">
-          <Info className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+          <Info className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" />
           <div className="space-y-1">
             <span className="font-semibold text-[var(--color-text-primary)]">
               {adaptiveStatus.isEligible ? 'Adaptive Calibration Active' : 'Adaptive TDEE Status (Standby)'}

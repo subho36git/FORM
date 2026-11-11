@@ -198,7 +198,7 @@ export const MeasurementComparisonView: React.FC = () => {
                                 ? 'text-[var(--color-text-muted)]'
                                 : isPositive
                                 ? 'text-amber-500'
-                                : 'text-blue-500'
+                                : 'text-[var(--color-accent)]'
                             }`}
                           >
                             {isZero ? (
@@ -225,7 +225,7 @@ export const MeasurementComparisonView: React.FC = () => {
                                 ? 'text-[var(--color-text-muted)]'
                                 : site.pctChange > 0
                                 ? 'text-amber-500'
-                                : 'text-blue-500'
+                                : 'text-[var(--color-accent)]'
                             }`}
                           >
                             {site.pctChange > 0 ? '+' : ''}
